@@ -32,6 +32,7 @@ Costs are unchanged unless stated. Links to the Basics projects only apply when 
 | **Brewing** | Requires Cultivation (Basics) |
 | **Pemmican** | Requires Hunting (Basics) |
 | **Drug production** | Requires Medicine (Basics) |
+| **Culture** (Basics) | Shows a single line from Furniture. Medicine, Tribalwear, Animal handling and Bow are still required but no longer drawn |
 | **Harp** | Requires Culture (Basics) as well as Complex furniture |
 | **Leather tanning** | Now also unlocks leather armor and leather helmet (were under Smithing) |
 | Heavy leather armor and helmet | Require **Plate armor and Leather tanning** (were Plate armor only) |
