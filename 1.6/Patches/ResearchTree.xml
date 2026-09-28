@@ -67,6 +67,8 @@
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFES_BarbedWire"]/researchPrerequisites/li[.="VWE_TrenchWarfare"]</xpath><value><li>Machining</li></value><success>Always</success></Operation>
 
 	<!-- ===== 2. Research projects: names, costs, descriptions, prerequisites ===== -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]/prerequisites</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Bow</li></prerequisites></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]/label</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><label>greatbows</label></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]/description</xpath><success>Always</success></Operation>

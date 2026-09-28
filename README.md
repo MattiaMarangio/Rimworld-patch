@@ -18,7 +18,8 @@ Costs are unchanged unless stated.
 
 | Project | Change |
 |---|---|
-| **Greatbows** (was *greatbow*, 600) | Unlocks the greatbow, longbow and warbow. Requires Recurve bow (unchanged from vanilla) |
+| **Recurve bow** | Requires Bow from the Basics projects (when VFE Tribals is active). Unlocks the recurve bow and quiver, as in vanilla |
+| **Greatbows** (was *greatbow*, 600) | Unlocks the greatbow, longbow and warbow. Requires Recurve bow |
 | **Crossbows** (new, 600) | Unlocks the crossbow and arbalest (were under Greatbow). Requires Greatbows |
 | **Advanced clothing** (was *work attire*) | Cost 1,000 → **2,000**. Unlocks everything from work attire, casual wear, formal wear and sterile attire: builder's jacket, chef's toque, chef's uniform, fleece shirt, hardhat, jeans, jumpsuit, overalls, baseball cap, casual T-shirt, glasses, hoodie, scarf, shorts, sunglasses, tank top, fedora, shirt and tie, skirt, suit jacket, trousers, doctor scrubs, sterile lab coat, surgical mask |
 | **Military clothing** | Now also unlocks the ghillie hood and ghillie suit. Requires Advanced clothing (was work attire + sterile attire) |
