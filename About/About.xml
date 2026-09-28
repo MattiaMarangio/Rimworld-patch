@@ -8,7 +8,7 @@
 	</supportedVersions>
 	<description>One research tab instead of five, laid out so it reads cleanly, plus tidier item categories and consistent names. XML patches only.
 
-Research: moves the Basics, ReGrowth and Vanilla Expanded projects into Main and removes those tabs (Anomaly and Gravtech untouched). Projects are arranged by what unlocks what, eras left to right, key projects on one centre line, and the tree fits the screen height. Merges: Bow > Recurve bow > Greatbows > Crossbows, Basic furniture into Furniture, Advanced clothing, Military clothing (with camouflage), Eltex gear (with caster gear); scarecrow in Cultivation; leather armor in Leather tanning; wine needs Brewing.
+Research: moves the Basics, ReGrowth and Vanilla Expanded projects into Main and removes those tabs (Anomaly and Gravtech untouched). Projects are arranged by what unlocks what, eras left to right, key projects on one centre line, and the tree fits the screen height. Chains: Bow > Recurve bow > Greatbows > Crossbows, Construction > Furniture > Basic furniture > Complex furniture, Tribalwear > Complex clothing. Merges: Advanced clothing, Military clothing (with camouflage), Eltex gear (with caster gear); scarecrow in Cultivation; leather armor in Leather tanning; wine needs Brewing.
 
 Item categories: apparel and armor by body slot, ranged weapons by range, tidier Manufactured, Foods and Misc groups.
 

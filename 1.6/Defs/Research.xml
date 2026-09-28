@@ -11,8 +11,8 @@
 			<li>Greatbow</li>
 		</prerequisites>
 		<tab>Main</tab>
-		<researchViewX>8.00</researchViewX>
-		<researchViewY>5.40</researchViewY>
+		<researchViewX>7.00</researchViewX>
+		<researchViewY>6.60</researchViewY>
 		<generalRules>
 			<rulesStrings>
 				<li>subject->crossbows</li>

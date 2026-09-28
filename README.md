@@ -3,7 +3,7 @@
 One research tab instead of five, laid out so it reads cleanly, plus tidier item categories, consistent names and base-game storytellers only. XML patches only, no code.
 
 ## Research tabs
-- Moves 61 projects into **Main**: 46 from **Vanilla Expanded**, 13 from **Basics** (VFE Tribals) and 2 from **ReGrowth**. Main then holds 182 projects, including the new Crossbows project.
+- Moves 61 projects into **Main**: 46 from **Vanilla Expanded**, 13 from **Basics** (VFE Tribals) and 2 from **ReGrowth**. Main then holds 183 projects, including the new Crossbows project.
 - Removes the **Vanilla Expanded**, **Basics** and **ReGrowth** tabs. A tab is only removed if no research still uses it, so a mod update that adds new projects there keeps its tab.
 - **Anomaly** and **Gravtech** are not touched.
 
@@ -14,7 +14,7 @@ One research tab instead of five, laid out so it reads cleanly, plus tidier item
 - Projects of the same theme (food, power, apparel, weapons and so on) are kept close together. The five starship projects share one column.
 
 ## Merged and adjusted research
-Costs are unchanged unless stated.
+Costs are unchanged unless stated. Links to the Basics projects only apply when VFE Tribals is active; for non-tribal starts VFE Tribals completes the Basics projects automatically.
 
 | Project | Change |
 |---|---|
@@ -25,7 +25,8 @@ Costs are unchanged unless stated.
 | **Military clothing** | Now also unlocks the ghillie hood and ghillie suit. Requires Advanced clothing (was work attire + sterile attire) |
 | **Eltex gear** | Now also unlocks the eltex cape, mask, dagger, mace and sword. Requires Noble apparel (was Complex clothing) |
 | **Cultivation** (Basics) | Now also unlocks the scarecrow |
-| **Furniture** (Basics) | Now also unlocks the simple bed, simple double bed and modular bench. Basic furniture is removed and Complex furniture requires Furniture instead (only when VFE Tribals is active) |
+| **Basic furniture** | Requires Furniture (Basics). Now also unlocks the fueled stove and butcher table (were under Construction) and the fur bed (was under Complex furniture). Chain: Construction > Furniture > Basic furniture > Complex furniture |
+| **Complex clothing** | Requires Tribalwear (Basics) |
 | **Leather tanning** | Now also unlocks leather armor and leather helmet (were under Smithing) |
 | Heavy leather armor and helmet | Require **Plate armor and Leather tanning** (were Plate armor only) |
 | **Wine** | Requires Brewing (had no requirement) |
@@ -33,7 +34,7 @@ Costs are unchanged unless stated.
 | **Machining** | Now also unlocks razor wire (was under Trench warfare) |
 | **Imperial war solutions I / II** | The two Deserters projects that shared the name "imperial war solutions" are numbered |
 
-**Removed** (everything they unlocked is listed above): Farming techniques, Caster gear, Casual wear, Formal wear, Sterile attire, Military camouflage, and Basic furniture (with VFE Tribals).
+**Removed** (everything they unlocked is listed above): Farming techniques, Caster gear, Casual wear, Formal wear, Sterile attire, Military camouflage.
 
 ## Item categories
 These are the groups used by bill menus and by stockpile and outfit filters.
