@@ -27,6 +27,8 @@ Costs are unchanged unless stated.
 | **Leather tanning** | Now also unlocks leather armor and leather helmet (were under Smithing) |
 | Heavy leather armor and helmet | Require **Plate armor and Leather tanning** (were Plate armor only) |
 | **Wine** | Requires Brewing (had no requirement) |
+| **Gunsmithing** | Now also unlocks the trench gun and flamethrower (were under Trench warfare) |
+| **Machining** | Now also unlocks razor wire (was under Trench warfare) |
 | **Imperial war solutions I / II** | The two Deserters projects that shared the name "imperial war solutions" are numbered |
 
 **Removed** (everything they unlocked is listed above): Farming techniques, Caster gear, Casual wear, Formal wear, Sterile attire, Military camouflage.

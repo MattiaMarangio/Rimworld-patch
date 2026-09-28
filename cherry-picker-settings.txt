@@ -1,0 +1,234 @@
+CHERRY PICKER SETTINGS
+======================
+
+What was removed with Cherry Picker (by Owlchemist), saved so it does not have to be redone.
+98 entries: 2 research projects, 64 items, buildings and weapons, 32 recipes.
+
+HOW TO RESTORE
+--------------
+1. Quit RimWorld.
+2. Copy everything between the two "----- RAW SETTINGS FILE -----" lines below into a file named
+   Mod_3521312241_Mod_CherryPicker.xml
+3. Put it in the RimWorld config folder:
+   Mac:     ~/Library/Application Support/RimWorld/Config/
+   Windows: %USERPROFILE%\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Config\
+   Linux:   ~/.config/unity3d/Ludeon Studios/RimWorld by Ludeon Studios/Config/
+4. Start the game. Cherry Picker reads the list at startup.
+
+Note: Unified Research Tree gives three items a new research because their original one
+(Trench warfare) is removed here: trench gun and flamethrower -> Gunsmithing, razor wire -> Machining.
+
+RESEARCH PROJECTS
+-----------------
+  concealed defenses                   Vanilla Furniture Expanded - Security      [VFES_ConcealedDefenses]
+  trench warfare                       Vanilla Furniture Expanded - Security      [VWE_TrenchWarfare]
+
+ITEMS, BUILDINGS AND WEAPONS
+----------------------------
+  (from a mod that is not installed)                                              [VFEM2_CobblestoneWall_ChunkSandstone]
+  (from a mod that is not installed)                                              [VFEM2_CobblestoneWall_ChunkGranite]
+  (from a mod that is not installed)                                              [VFEM2_CobblestoneWall_ChunkLimestone]
+  (from a mod that is not installed)                                              [VFEM2_CobblestoneWall_ChunkSlate]
+  (from a mod that is not installed)                                              [VFEM2_CobblestoneWall_ChunkMarble]
+  (from a mod that is not installed)                                              [VFEM2_CobblestoneWall_ChunkVacstone]
+  clerestory wall                      ReBuild: Doors and Corners                 [RB_ClerestoryWall]
+  reinforced clerestory wall           ReBuild: Doors and Corners                 [RB_ReinforcedClerestoryWall]
+  smooth gravship hull                 ReBuild: Doors and Corners                 [RB_SmoothGravshipHull]
+  wall armor                           ReBuild: Doors and Corners                 [RB_OverwallArmor]
+  weak wall                            ReBuild: Doors and Corners                 [RB_RusticWall]
+  builder's jacket                     Vanilla Apparel Expanded                   [VAE_Apparel_BuildersJacket]
+  casual T-shirt                       Vanilla Apparel Expanded                   [VAE_Apparel_CasualTShirt]
+  chef's toque                         Vanilla Apparel Expanded                   [VAE_Headgear_ChefsToque]
+  chef's uniform                       Vanilla Apparel Expanded                   [VAE_Apparel_ChefsUniform]
+  doctor scrubs                        Vanilla Apparel Expanded                   [VAE_Apparel_DoctorScrubs]
+  fedora                               Vanilla Apparel Expanded                   [VAE_Headgear_Fedora]
+  fleece shirt                         Vanilla Apparel Expanded                   [VAE_Apparel_FleeceShirt]
+  hardhat                              Vanilla Apparel Expanded                   [VAE_Headgear_Hardhat]
+  hoodie                               Vanilla Apparel Expanded                   [VAE_Apparel_Hoodie]
+  sheriff shirt                        Vanilla Apparel Expanded                   [VAE_Apparel_SheriffShirt]
+  shirt and tie                        Vanilla Apparel Expanded                   [VAE_Apparel_ShirtandTie]
+  shorts                               Vanilla Apparel Expanded                   [VAE_Apparel_Shorts]
+  skirt                                Vanilla Apparel Expanded                   [VAE_Apparel_Skirt]
+  suit jacket                          Vanilla Apparel Expanded                   [VAE_Apparel_SuitJacket]
+  surgical mask                        Vanilla Apparel Expanded                   [VAE_Headgear_SurgicalMask]
+  trousers                             Vanilla Apparel Expanded                   [VAE_Apparel_Trousers]
+  explosive belt                       Vanilla Apparel Expanded — Accessories     [VAEA_Apparel_ExplosiveBelt]
+  ghillie hood                         Vanilla Armour Expanded                    [VAE_Headgear_GhillieHood]
+  ghillie suit                         Vanilla Armour Expanded                    [VAE_Apparel_GhillieSuit]
+  wooden armor                         Vanilla Armour Expanded                    [VAE_Apparel_WoodenArmor]
+  arquebus                             Vanilla Factions Expanded - Medieval 2     [VFEM2_Gun_Arquebus]
+  arquebus                             Vanilla Factions Expanded - Medieval 2     [VFEM2_Gun_ArquebusTurret]
+  cloth wall                           Vanilla Factions Expanded - Medieval 2     [VFEM2_ClothWall]
+  dane axe                             Vanilla Factions Expanded - Medieval 2     [VFEM2_MeleeWeapon_DaneAxe]
+  hand cannon                          Vanilla Factions Expanded - Medieval 2     [VFEM2_Gun_HandCannon]
+  timbered wall                        Vanilla Factions Expanded - Medieval 2     [VFEM2_TimberedWall]
+  wall-mounted arbalest                Vanilla Factions Expanded - Medieval 2     [VFEM2_Turret_WallMountedArbalest]
+  wall-mounted arquebus                Vanilla Factions Expanded - Medieval 2     [VFEM2_Turret_WallMountedArquebus]
+  warbow arrow                         Vanilla Factions Expanded - Medieval 2     [VFEM2_Arrow_Warbow]
+  dark firepit                         Vanilla Furniture Expanded                 [Stone_DarklightCampfire]
+  research counter                     Vanilla Furniture Expanded - Medical Module [Facility_ResearchCounter]
+  HMG complex                          Vanilla Furniture Expanded - Security      [VFES_Complex_Hmg]
+  concealed barrier                    Vanilla Furniture Expanded - Security      [VFES_ConcealedBarrier]
+  concealed turret                     Vanilla Furniture Expanded - Security      [VFES_Turret_Concealed]
+  concealed turret bullet              Vanilla Furniture Expanded - Security      [VFES_Bullet_ConcealedTurret]
+  concealed turret gun                 Vanilla Furniture Expanded - Security      [VFES_Gun_ConcealedTurret]
+  dugout                               Vanilla Furniture Expanded - Security      [VFES_Dugout]
+  platform                             Vanilla Furniture Expanded - Security      [VFES_Platform]
+  searchlight                          Vanilla Furniture Expanded - Security      [VFES_Gun_Searchlight]
+  searchlight                          Vanilla Furniture Expanded - Security      [VFES_Turret_Searchlight]
+  trench                               Vanilla Furniture Expanded - Security      [VFES_Trench]
+  anti-materiel rifle                  Vanilla Weapons Expanded                   [VWE_Gun_AntiMaterialRifle]
+  baton                                Vanilla Weapons Expanded                   [VWE_MeleeWeapon_Baton]
+  combat knife                         Vanilla Weapons Expanded                   [VWE_MeleeWeapon_CombatKnife]
+  lever-action rifle                   Vanilla Weapons Expanded                   [VWE_Gun_LeverActionRifle]
+  light SMG                            Vanilla Weapons Expanded                   [VWE_Gun_LightSMG]
+  service rifle                        Vanilla Weapons Expanded                   [VWE_Gun_ServiceRifle]
+  shovel                               Vanilla Weapons Expanded                   [VWE_MeleeWeapon_Shovel]
+  unique anti-materiel rifle           Vanilla Weapons Expanded                   [VWE_Gun_AntiMaterialRifle_Unique]
+  unique battle rifle                  Vanilla Weapons Expanded                   [VWE_Gun_BattleRifle_Unique]
+  unique lever-action rifle            Vanilla Weapons Expanded                   [VWE_Gun_LeverActionRifle_Unique]
+  unique light SMG                     Vanilla Weapons Expanded                   [VWE_Gun_LightSMG_Unique]
+  unique service rifle                 Vanilla Weapons Expanded                   [VWE_Gun_ServiceRifle_Unique]
+
+RECIPES
+-------
+  (recipe generated by the game)                                                  [Make_VWE_Gun_AntiMaterialRifle]
+  (recipe generated by the game)                                                  [Make_VAEA_Apparel_ExplosiveBelt]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_CasualTShirt]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_Hoodie]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_Shorts]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_Skirt]
+  (recipe generated by the game)                                                  [Make_VAE_Headgear_SurgicalMask]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_SheriffShirt]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_FleeceShirt]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_ShirtandTie]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_SuitJacket]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_Trousers]
+  (recipe generated by the game)                                                  [Make_VAE_Headgear_Fedora]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_ChefsUniform]
+  (recipe generated by the game)                                                  [Make_VAE_Headgear_ChefsToque]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_BuildersJacket]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_DoctorScrubs]
+  (recipe generated by the game)                                                  [Make_VAE_Headgear_Hardhat]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_GhillieSuit]
+  (recipe generated by the game)                                                  [Make_VAE_Headgear_GhillieHood]
+  (recipe generated by the game)                                                  [Make_VAE_Apparel_WoodenArmor]
+  (recipe generated by the game)                                                  [Make_VFEM2_MeleeWeapon_DaneAxe]
+  (recipe generated by the game)                                                  [Make_VFEM2_Gun_HandCannon]
+  (recipe generated by the game)                                                  [Make_VFEM2_Gun_Arquebus]
+  (recipe generated by the game)                                                  [Make_VWE_MeleeWeapon_Shovel]
+  (recipe generated by the game)                                                  [Make_VWE_MeleeWeapon_Baton]
+  (recipe generated by the game)                                                  [Make_VWE_Gun_LeverActionRifle]
+  (recipe generated by the game)                                                  [Make_VWE_Gun_LightSMG]
+  (recipe generated by the game)                                                  [Make_VWE_Gun_ServiceRifle]
+  (recipe generated by the game)                                                  [Make_VWE_MeleeWeapon_BattleAxe]
+  (recipe generated by the game)                                                  [Make_VWE_Gun_BattleRifle]
+  (recipe generated by the game)                                                  [Make_VWE_MeleeWeapon_CombatKnife]
+
+----- RAW SETTINGS FILE -----
+<?xml version="1.0" encoding="utf-8"?>
+<SettingsBlock>
+	<ModSettings Class="CherryPicker.ModSettings_CherryPicker">
+		<keys>
+			<li>ThingDef/VFEM2_Arrow_Warbow</li>
+			<li>ThingDef/VFES_Bullet_ConcealedTurret</li>
+			<li>ThingDef/VWE_Gun_AntiMaterialRifle_Unique</li>
+			<li>ThingDef/VWE_Gun_AntiMaterialRifle</li>
+			<li>RecipeDef/Make_VWE_Gun_AntiMaterialRifle</li>
+			<li>ThingDef/RB_SmoothGravshipHull</li>
+			<li>ThingDef/RB_OverwallArmor</li>
+			<li>ThingDef/RB_RusticWall</li>
+			<li>ThingDef/RB_ClerestoryWall</li>
+			<li>ThingDef/RB_ReinforcedClerestoryWall</li>
+			<li>ThingDef/VAE_Apparel_CasualTShirt</li>
+			<li>ThingDef/VAE_Apparel_Hoodie</li>
+			<li>ThingDef/VAE_Apparel_Shorts</li>
+			<li>ThingDef/VAE_Apparel_Skirt</li>
+			<li>ThingDef/VAE_Apparel_ShirtandTie</li>
+			<li>ThingDef/VAE_Apparel_SuitJacket</li>
+			<li>ThingDef/VAE_Apparel_Trousers</li>
+			<li>ThingDef/VAE_Headgear_Fedora</li>
+			<li>ThingDef/VAE_Apparel_FleeceShirt</li>
+			<li>ThingDef/VAE_Apparel_ChefsUniform</li>
+			<li>ThingDef/VAE_Apparel_BuildersJacket</li>
+			<li>ThingDef/VAE_Apparel_DoctorScrubs</li>
+			<li>ThingDef/VAE_Apparel_SheriffShirt</li>
+			<li>ThingDef/VAE_Headgear_Hardhat</li>
+			<li>ThingDef/VAE_Headgear_SurgicalMask</li>
+			<li>RecipeDef/Make_VAEA_Apparel_ExplosiveBelt</li>
+			<li>ThingDef/VAE_Headgear_ChefsToque</li>
+			<li>RecipeDef/Make_VAE_Apparel_CasualTShirt</li>
+			<li>RecipeDef/Make_VAE_Apparel_Hoodie</li>
+			<li>RecipeDef/Make_VAE_Apparel_Shorts</li>
+			<li>RecipeDef/Make_VAE_Apparel_Skirt</li>
+			<li>RecipeDef/Make_VAE_Headgear_SurgicalMask</li>
+			<li>RecipeDef/Make_VAE_Apparel_SheriffShirt</li>
+			<li>RecipeDef/Make_VAE_Apparel_FleeceShirt</li>
+			<li>RecipeDef/Make_VAE_Apparel_ShirtandTie</li>
+			<li>RecipeDef/Make_VAE_Apparel_SuitJacket</li>
+			<li>RecipeDef/Make_VAE_Apparel_Trousers</li>
+			<li>RecipeDef/Make_VAE_Headgear_Fedora</li>
+			<li>RecipeDef/Make_VAE_Apparel_ChefsUniform</li>
+			<li>RecipeDef/Make_VAE_Headgear_ChefsToque</li>
+			<li>RecipeDef/Make_VAE_Apparel_BuildersJacket</li>
+			<li>RecipeDef/Make_VAE_Apparel_DoctorScrubs</li>
+			<li>RecipeDef/Make_VAE_Headgear_Hardhat</li>
+			<li>ThingDef/VAEA_Apparel_ExplosiveBelt</li>
+			<li>ThingDef/VAE_Apparel_GhillieSuit</li>
+			<li>ThingDef/VAE_Headgear_GhillieHood</li>
+			<li>RecipeDef/Make_VAE_Apparel_GhillieSuit</li>
+			<li>RecipeDef/Make_VAE_Headgear_GhillieHood</li>
+			<li>ThingDef/VAE_Apparel_WoodenArmor</li>
+			<li>RecipeDef/Make_VAE_Apparel_WoodenArmor</li>
+			<li>ThingDef/VFEM2_Turret_WallMountedArbalest</li>
+			<li>ThingDef/VFEM2_Turret_WallMountedArquebus</li>
+			<li>ThingDef/VFEM2_ClothWall</li>
+			<li>ThingDef/VFEM2_TimberedWall</li>
+			<li>ThingDef/VFEM2_MeleeWeapon_DaneAxe</li>
+			<li>RecipeDef/Make_VFEM2_MeleeWeapon_DaneAxe</li>
+			<li>ThingDef/VFEM2_Gun_Arquebus</li>
+			<li>ThingDef/VFEM2_Gun_HandCannon</li>
+			<li>RecipeDef/Make_VFEM2_Gun_HandCannon</li>
+			<li>RecipeDef/Make_VFEM2_Gun_Arquebus</li>
+			<li>ThingDef/VFEM2_Gun_ArquebusTurret</li>
+			<li>ThingDef/Stone_DarklightCampfire</li>
+			<li>ThingDef/Facility_ResearchCounter</li>
+			<li>ThingDef/VFES_Turret_Concealed</li>
+			<li>ThingDef/VFES_Gun_ConcealedTurret</li>
+			<li>ThingDef/VFES_ConcealedBarrier</li>
+			<li>ResearchProjectDef/VFES_ConcealedDefenses</li>
+			<li>ThingDef/VFES_Dugout</li>
+			<li>ThingDef/VFES_Trench</li>
+			<li>ThingDef/VFES_Platform</li>
+			<li>ThingDef/VFES_Gun_Searchlight</li>
+			<li>ThingDef/VFES_Turret_Searchlight</li>
+			<li>ThingDef/VWE_MeleeWeapon_Baton</li>
+			<li>ResearchProjectDef/VWE_TrenchWarfare</li>
+			<li>ThingDef/VWE_MeleeWeapon_Shovel</li>
+			<li>RecipeDef/Make_VWE_MeleeWeapon_Shovel</li>
+			<li>RecipeDef/Make_VWE_MeleeWeapon_Baton</li>
+			<li>ThingDef/VWE_Gun_LeverActionRifle_Unique</li>
+			<li>ThingDef/VWE_Gun_LeverActionRifle</li>
+			<li>RecipeDef/Make_VWE_Gun_LeverActionRifle</li>
+			<li>ThingDef/VWE_Gun_LightSMG_Unique</li>
+			<li>ThingDef/VWE_Gun_LightSMG</li>
+			<li>RecipeDef/Make_VWE_Gun_LightSMG</li>
+			<li>ThingDef/VWE_Gun_ServiceRifle_Unique</li>
+			<li>ThingDef/VWE_Gun_ServiceRifle</li>
+			<li>RecipeDef/Make_VWE_Gun_ServiceRifle</li>
+			<li>ThingDef/VWE_Gun_BattleRifle_Unique</li>
+			<li>RecipeDef/Make_VWE_MeleeWeapon_BattleAxe</li>
+			<li>RecipeDef/Make_VWE_Gun_BattleRifle</li>
+			<li>ThingDef/VWE_MeleeWeapon_CombatKnife</li>
+			<li>RecipeDef/Make_VWE_MeleeWeapon_CombatKnife</li>
+			<li>ThingDef/VFEM2_CobblestoneWall_ChunkSandstone</li>
+			<li>ThingDef/VFEM2_CobblestoneWall_ChunkGranite</li>
+			<li>ThingDef/VFEM2_CobblestoneWall_ChunkLimestone</li>
+			<li>ThingDef/VFEM2_CobblestoneWall_ChunkSlate</li>
+			<li>ThingDef/VFEM2_CobblestoneWall_ChunkMarble</li>
+			<li>ThingDef/VFEM2_CobblestoneWall_ChunkVacstone</li>
+			<li>ThingDef/VFES_Complex_Hmg</li>
+		</keys>
+	</ModSettings>
+</SettingsBlock>
+----- RAW SETTINGS FILE -----

@@ -64,6 +64,10 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherArmor"]/recipeMaker</xpath><value><researchPrerequisites><li>PlateArmor</li><li>VAE_LeatherTanning</li></researchPrerequisites></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherHelmet"]/recipeMaker/researchPrerequisite[.="PlateArmor"]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherHelmet"]/recipeMaker</xpath><value><researchPrerequisites><li>PlateArmor</li><li>VAE_LeatherTanning</li></researchPrerequisites></value><success>Always</success></Operation>
+	<!-- items whose research (Trench warfare) is hidden by Cherry Picker: give them a new one -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VWE_Gun_Flamethrower"]/recipeMaker/researchPrerequisite[.="VWE_TrenchWarfare"]</xpath><value><researchPrerequisite>Gunsmithing</researchPrerequisite></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VWE_TrenchGun"]/recipeMaker/researchPrerequisite[.="VWE_TrenchWarfare"]</xpath><value><researchPrerequisite>Gunsmithing</researchPrerequisite></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFES_BarbedWire"]/researchPrerequisites/li[.="VWE_TrenchWarfare"]</xpath><value><li>Machining</li></value><success>Always</success></Operation>
 
 	<!-- ===== 2. Research projects: names, costs, descriptions, prerequisites ===== -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]/label</xpath><success>Always</success></Operation>
@@ -117,76 +121,79 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Fire"]</xpath><value><tab>Main</tab><researchViewX>0.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
 	<!-- agriculture -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Agriculture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Agriculture"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Agriculture"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
 	<!-- mining -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Mining"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Mining"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
-	<!-- tribalwear -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Tribalwear"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Tribalwear"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
-	<!-- hunting -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Hunting"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Hunting"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
-	<!-- cultivation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Cultivation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Cultivation"]</xpath><value><tab>Main</tab><researchViewX>2.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
-	<!-- construction -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Construction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Construction"]</xpath><value><tab>Main</tab><researchViewX>2.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- weapons -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Weapons"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Weapons"]</xpath><value><tab>Main</tab><researchViewX>2.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
-	<!-- medicine -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Medicine"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Medicine"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- furniture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Furniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Furniture"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Mining"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
 	<!-- animal handling -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_AnimalHandling"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_AnimalHandling"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_AnimalHandling"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
+	<!-- tribalwear -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Tribalwear"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Tribalwear"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
+	<!-- hunting -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Hunting"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Hunting"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
+	<!-- cultivation -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Cultivation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Cultivation"]</xpath><value><tab>Main</tab><researchViewX>2.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<!-- construction -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Construction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Construction"]</xpath><value><tab>Main</tab><researchViewX>2.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
+	<!-- weapons -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Weapons"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Weapons"]</xpath><value><tab>Main</tab><researchViewX>2.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
+	<!-- medicine -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Medicine"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Medicine"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
+	<!-- furniture -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Furniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Furniture"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
 	<!-- bow -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Bow"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Bow"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Bow"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
 	<!-- culture -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Culture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Culture"]</xpath><value><tab>Main</tab><researchViewX>4.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
-	<!-- mushroom cultivation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RG_MushroomCultivation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RG_MushroomCultivation"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- carpet-making -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="CarpetMaking"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CarpetMaking"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Culture"]</xpath><value><tab>Main</tab><researchViewX>4.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
 	<!-- heavy bridges -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="HeavyBridges"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="HeavyBridges"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
-	<!-- fishing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Fishing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Fishing"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="HeavyBridges"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
+	<!-- berry cultivation -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RG_BerryCultivation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RG_BerryCultivation"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
+	<!-- mushroom cultivation -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RG_MushroomCultivation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RG_MushroomCultivation"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<!-- tree sowing -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="TreeSowing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="TreeSowing"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
+	<!-- passive cooler -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PassiveCooler"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PassiveCooler"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
 	<!-- drug production -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="DrugProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="DrugProduction"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
+	<!-- carpet-making -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="CarpetMaking"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CarpetMaking"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
 	<!-- devilstrand -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Devilstrand"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Devilstrand"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
-	<!-- berry cultivation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RG_BerryCultivation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RG_BerryCultivation"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
-	<!-- passive cooler -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PassiveCooler"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PassiveCooler"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Devilstrand"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<!-- cocoa -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Cocoa"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Cocoa"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
 	<!-- pemmican -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Pemmican"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Pemmican"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
+	<!-- fishing -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Fishing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Fishing"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
+	<!-- Penoxycyline -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PenoxycylineProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PenoxycylineProduction"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
 	<!-- Wake-up -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="WakeUpProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="WakeUpProduction"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- Go-juice -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GoJuiceProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GoJuiceProduction"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
-	<!-- psychite refining -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PsychiteRefining"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PsychiteRefining"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="WakeUpProduction"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
 	<!-- stonecutting -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Stonecutting"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Stonecutting"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
@@ -195,25 +202,22 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Beekeeping"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
 	<!-- recurve bow -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
 	<!-- basic furniture -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MF_BasicFurniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MF_BasicFurniture"]</xpath><value><tab>Main</tab><researchViewX>8.00</researchViewX><researchViewY>0.00</researchViewY></value><success>Always</success></Operation>
-	<!-- Penoxycyline -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PenoxycylineProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PenoxycylineProduction"]</xpath><value><tab>Main</tab><researchViewX>8.00</researchViewX><researchViewY>0.60</researchViewY></value><success>Always</success></Operation>
-	<!-- tree sowing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="TreeSowing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="TreeSowing"]</xpath><value><tab>Main</tab><researchViewX>8.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
-	<!-- greatbow -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><tab>Main</tab><researchViewX>8.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
+	<!-- psychite refining -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PsychiteRefining"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PsychiteRefining"]</xpath><value><tab>Main</tab><researchViewX>8.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
 	<!-- complex furniture -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ComplexFurniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ComplexFurniture"]</xpath><value><tab>Main</tab><researchViewX>9.00</researchViewX><researchViewY>0.00</researchViewY></value><success>Always</success></Operation>
-	<!-- Psychite tea -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PsychoidBrewing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PsychoidBrewing"]</xpath><value><tab>Main</tab><researchViewX>9.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
+	<!-- Go-juice -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GoJuiceProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GoJuiceProduction"]</xpath><value><tab>Main</tab><researchViewX>9.00</researchViewX><researchViewY>0.60</researchViewY></value><success>Always</success></Operation>
+	<!-- greatbow -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><tab>Main</tab><researchViewX>9.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
 	<!-- complex clothing -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ComplexClothing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ComplexClothing"]</xpath><value><tab>Main</tab><researchViewX>9.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
@@ -223,18 +227,18 @@
 	<!-- noble decorations -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEE_NobleDecorations"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEE_NobleDecorations"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
-	<!-- cocoa -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Cocoa"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Cocoa"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
 	<!-- beer brewing -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Brewing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Brewing"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Brewing"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<!-- Psychite tea -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PsychoidBrewing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PsychoidBrewing"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
 	<!-- leather tanning -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_LeatherTanning"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_LeatherTanning"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>6.00</researchViewY></value><success>Always</success></Operation>
 	<!-- noble apparel -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="NobleApparel"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NobleApparel"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NobleApparel"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>7.80</researchViewY></value><success>Always</success></Operation>
 	<!-- artisan furniture -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MF_RoyalFurniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MF_RoyalFurniture"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>0.60</researchViewY></value><success>Always</success></Operation>
@@ -246,7 +250,7 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_MedievalArchitecture"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
 	<!-- wine -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Wine"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Wine"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Wine"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
 	<!-- alchemy -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Alchemy"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Alchemy"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
@@ -270,7 +274,7 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PlateArmor"]</xpath><value><tab>Main</tab><researchViewX>12.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
 	<!-- royal apparel -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RoyalApparel"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RoyalApparel"]</xpath><value><tab>Main</tab><researchViewX>12.00</researchViewX><researchViewY>7.80</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RoyalApparel"]</xpath><value><tab>Main</tab><researchViewX>12.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
 	<!-- harpsichord -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Harpsichord"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Harpsichord"]</xpath><value><tab>Main</tab><researchViewX>13.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
@@ -289,18 +293,24 @@
 	<!-- work attire -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]</xpath><value><tab>Main</tab><researchViewX>14.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
+	<!-- trench warfare -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VWE_TrenchWarfare"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VWE_TrenchWarfare"]</xpath><value><tab>Main</tab><researchViewX>14.00</researchViewX><researchViewY>7.80</researchViewY></value><success>Always</success></Operation>
 	<!-- Hydroponics basin -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Hydroponics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Hydroponics"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>0.60</researchViewY></value><success>Always</success></Operation>
-	<!-- firefoam -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Firefoam"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Firefoam"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
+	<!-- nutrient paste -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="NutrientPaste"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NutrientPaste"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
+	<!-- deathrest -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Deathrest"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Deathrest"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
 	<!-- fertility procedures -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="FertilityProcedures"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FertilityProcedures"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
-	<!-- deathrest -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Deathrest"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Deathrest"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<!-- firefoam -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Firefoam"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Firefoam"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
 	<!-- toxifier generator -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ToxifierGenerator"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ToxifierGenerator"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
@@ -310,12 +320,15 @@
 	<!-- military clothing -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_MilitaryClothing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_MilitaryClothing"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
+	<!-- concealed defenses -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_ConcealedDefenses"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_ConcealedDefenses"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>7.80</researchViewY></value><success>Always</success></Operation>
 	<!-- waste disposal -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MF_WasteDisposal"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MF_WasteDisposal"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- nutrient paste -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="NutrientPaste"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NutrientPaste"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
+	<!-- packaged survival meal -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PackagedSurvivalMeal"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PackagedSurvivalMeal"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
 	<!-- advanced lights -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ColoredLights"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ColoredLights"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
@@ -334,21 +347,18 @@
 	<!-- organ -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEE_PipeOrgans"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEE_PipeOrgans"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
-	<!-- packaged survival meal -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PackagedSurvivalMeal"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PackagedSurvivalMeal"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
-	<!-- Smokepop pack -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SmokepopBelt"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SmokepopBelt"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
+	<!-- watermill generator -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="WatermillGenerator"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="WatermillGenerator"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
 	<!-- Sprinkler -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_Sprinkler"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_Sprinkler"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_Sprinkler"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
 	<!-- prosthetics -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Prosthetics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Prosthetics"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>6.00</researchViewY></value><success>Always</success></Operation>
-	<!-- tox gas -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ToxGas"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ToxGas"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
+	<!-- Smokepop pack -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SmokepopBelt"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SmokepopBelt"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
 	<!-- gunsmithing -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Gunsmithing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Gunsmithing"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>7.20</researchViewY></value><success>Always</success></Operation>
@@ -357,37 +367,34 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Xenogermination"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
 	<!-- air conditioning -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="AirConditioning"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="AirConditioning"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- watermill generator -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="WatermillGenerator"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="WatermillGenerator"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="AirConditioning"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
+	<!-- basic electronics -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="TubeTelevision"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="TubeTelevision"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
 	<!-- Autodoors -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Autodoors"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Autodoors"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
+	<!-- tox gas -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ToxGas"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ToxGas"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
 	<!-- mortars -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Mortars"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Mortars"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>6.00</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Mortars"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
 	<!-- blowback operation -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BlowbackOperation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BlowbackOperation"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>7.20</researchViewY></value><success>Always</success></Operation>
-	<!-- basic electronics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="TubeTelevision"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="TubeTelevision"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
 	<!-- HVAC -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VTE_HVAC"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VTE_HVAC"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VTE_HVAC"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
 	<!-- biofuel refining -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BiofuelRefining"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BiofuelRefining"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BiofuelRefining"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
 	<!-- basic mechtech -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
 	<!-- security door -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SecurityDoor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SecurityDoor"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
-	<!-- trench warfare -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VWE_TrenchWarfare"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VWE_TrenchWarfare"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>6.00</researchViewY></value><success>Always</success></Operation>
 	<!-- gun turrets -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GunTurrets"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GunTurrets"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
@@ -411,10 +418,7 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FlakArmor"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
 	<!-- foam turret -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="FoamTurret"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FoamTurret"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- concealed defenses -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_ConcealedDefenses"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_ConcealedDefenses"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FoamTurret"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
 	<!-- Geothermal generator -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GeothermalPower"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GeothermalPower"]</xpath><value><tab>Main</tab><researchViewX>21.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
@@ -429,7 +433,7 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_AdvancedBatteries"]</xpath><value><tab>Main</tab><researchViewX>21.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
 	<!-- dronetech -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VQE_Dronetech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VQE_Dronetech"]</xpath><value><tab>Main</tab><researchViewX>21.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VQE_Dronetech"]</xpath><value><tab>Main</tab><researchViewX>21.00</researchViewX><researchViewY>6.00</researchViewY></value><success>Always</success></Operation>
 	<!-- standard mechtech -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="StandardMechtech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="StandardMechtech"]</xpath><value><tab>Main</tab><researchViewX>21.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
@@ -550,12 +554,12 @@
 	<!-- spacer furniture -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SpacerFurniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SpacerFurniture"]</xpath><value><tab>Main</tab><researchViewX>27.00</researchViewX><researchViewY>0.00</researchViewY></value><success>Always</success></Operation>
+	<!-- imperial defenses -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialDefenses"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialDefenses"]</xpath><value><tab>Main</tab><researchViewX>27.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
 	<!-- imperial war solutions -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialWarSolutions"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialWarSolutions"]</xpath><value><tab>Main</tab><researchViewX>27.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
-	<!-- imperial defenses -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialDefenses"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialDefenses"]</xpath><value><tab>Main</tab><researchViewX>27.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
 	<!-- Manufacturing -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_Manufacturing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_Manufacturing"]</xpath><value><tab>Main</tab><researchViewX>27.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
@@ -565,12 +569,18 @@
 	<!-- androidtech -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VREA_AndroidTech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VREA_AndroidTech"]</xpath><value><tab>Main</tab><researchViewX>27.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
-	<!-- flesh shaping -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="FleshShaping"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FleshShaping"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
-	<!-- circadian influence -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="CircadianInfluence"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CircadianInfluence"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
+	<!-- healing factors -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="HealingFactors"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="HealingFactors"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
+	<!-- neural computation -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="NeuralComputation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NeuralComputation"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
+	<!-- molecular analysis -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MolecularAnalysis"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MolecularAnalysis"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<!-- toxin filtration -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ToxFiltration"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ToxFiltration"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
 	<!-- recon armor -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ReconArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ReconArmor"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
@@ -580,18 +590,12 @@
 	<!-- pulse-charged munitions -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ChargedShot"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ChargedShot"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
-	<!-- toxin filtration -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ToxFiltration"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ToxFiltration"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>0.00</researchViewY></value><success>Always</success></Operation>
-	<!-- neural computation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="NeuralComputation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NeuralComputation"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
+	<!-- flesh shaping -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="FleshShaping"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FleshShaping"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
 	<!-- bionic replacements -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Bionics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Bionics"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
-	<!-- molecular analysis -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MolecularAnalysis"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MolecularAnalysis"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Bionics"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
 	<!-- advanced fabrication -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="AdvancedFabrication"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="AdvancedFabrication"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
@@ -600,10 +604,10 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Gunlink"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
 	<!-- janissary gear -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEE_JanissaryGear"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEE_JanissaryGear"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEE_JanissaryGear"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
 	<!-- railgun -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_Railgun"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_Railgun"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>6.00</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_Railgun"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
 	<!-- laser targeting systems -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VWE_LaserTargetingSystems"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VWE_LaserTargetingSystems"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
@@ -613,51 +617,51 @@
 	<!-- archogenetics -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Archogenetics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Archogenetics"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- healing factors -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="HealingFactors"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="HealingFactors"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- skin hardening -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SkinHardening"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SkinHardening"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
+	<!-- artificial metabolism -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ArtificialMetabolism"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ArtificialMetabolism"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
 	<!-- wastepack atomizer -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="WastepackAtomizer"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="WastepackAtomizer"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
 	<!-- marine armor -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PoweredArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PoweredArmor"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PoweredArmor"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
 	<!-- beam weapons -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BeamWeapons"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BeamWeapons"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>6.60</researchViewY></value><success>Always</success></Operation>
 	<!-- repulsor technology -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_RepulsorTechnology"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_RepulsorTechnology"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>7.80</researchViewY></value><success>Always</success></Operation>
-	<!-- artificial metabolism -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ArtificialMetabolism"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ArtificialMetabolism"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<!-- skin hardening -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SkinHardening"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SkinHardening"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
+	<!-- circadian influence -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="CircadianInfluence"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CircadianInfluence"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
 	<!-- cataphract armor -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="CataphractArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CataphractArmor"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CataphractArmor"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
 	<!-- siegebreaker armor -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_SiegebreakerArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_SiegebreakerArmor"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>7.20</researchViewY></value><success>Always</success></Operation>
 	<!-- starflight basics -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipBasics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipBasics"]</xpath><value><tab>Main</tab><researchViewX>34.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- machine persuasion -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipComputerCore"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipComputerCore"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
-	<!-- vacuum cryptosleep casket -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipCryptosleep"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipCryptosleep"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
-	<!-- Johnson-Tanaka drive -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipEngine"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipEngine"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
 	<!-- starship reactor -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipReactor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipReactor"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipReactor"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>3.60</researchViewY></value><success>Always</success></Operation>
 	<!-- starflight sensors -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipSensorCluster"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipSensorCluster"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipSensorCluster"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>4.20</researchViewY></value><success>Always</success></Operation>
+	<!-- vacuum cryptosleep casket -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipCryptosleep"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipCryptosleep"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>4.80</researchViewY></value><success>Always</success></Operation>
+	<!-- Johnson-Tanaka drive -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipEngine"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipEngine"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>5.40</researchViewY></value><success>Always</success></Operation>
+	<!-- machine persuasion -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipComputerCore"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipComputerCore"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>6.00</researchViewY></value><success>Always</success></Operation>
 
 	<!-- ===== 5. Remove the emptied Basics, ReGrowth and Vanilla Expanded tabs, only if no project still uses them ===== -->
 	<Operation Class="PatchOperationConditional">
