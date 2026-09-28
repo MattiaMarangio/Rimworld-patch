@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Unified Research Tree: names and descriptions (replaces Consistent Text, plus naming fixes). -->
+<Patch>
+
+	<!-- ===== Consistent Text: research named after what it unlocks ===== -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Autodoors"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Autodoors"]</xpath><value><label>autodoors</label></value><success>Always</success></Operation>
+
+	<!-- ===== Consistent Text: items and buildings ===== -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="WoodFiredGenerator"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="WoodFiredGenerator"]</xpath><value><label>fueled generator</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFE_PortableWoodFiredGenerator"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFE_PortableWoodFiredGenerator"]</xpath><value><label>portable fueled generator</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFE_IndustrialWoodFiredGenerator"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFE_IndustrialWoodFiredGenerator"]</xpath><value><label>industrial fueled generator</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Seat_Bench"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Seat_Bench"]</xpath><value><label>modular bench</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Table_Counter"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Table_Counter"]</xpath><value><label>modular counter</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFE_LongPlantPot"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFE_LongPlantPot"]</xpath><value><label>modular plant decoration</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Joy_InudstrialComputer"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Joy_InudstrialComputer"]</xpath><value><label>personal computer</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFE_Ecosystem_Tilable"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFE_Ecosystem_Tilable"]</xpath><value><label>modular artificial ecosystem</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFE_Hydroponics_Tilable"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFE_Hydroponics_Tilable"]</xpath><value><label>modular hydroponics basin</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFE_PlanterBox_Tilable"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFE_PlanterBox_Tilable"]</xpath><value><label>modular planter box</label></value><success>Always</success></Operation>
+
+	<!-- ===== Consistent Text: menu buttons ===== -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/MainButtonDef[defName="VFEE_Royalty"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/MainButtonDef[defName="VFEE_Royalty"]</xpath><value><label>nobles</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/MainButtonDef[defName="Mechs"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/MainButtonDef[defName="Mechs"]</xpath><value><label>mechanoids</label></value><success>Always</success></Operation>
+
+	<!-- ===== Fixes: typos, punctuation, spelling, casing ===== -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Bow_Compound_Unique"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Bow_Compound_Unique"]</xpath><value><label>unique compound bow</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VAEA_Apparel_RessurectorBelt"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VAEA_Apparel_RessurectorBelt"]</xpath><value><label>resurrector belt</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="RG_EggKiwiUnfertilized"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="RG_EggKiwiUnfertilized"]</xpath><value><label>kiwi egg (unfert.)</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_InspirationDraught"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_InspirationDraught"]</xpath><value><label>inspiration draught</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_KingsRobes"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_KingsRobes"]</xpath><value><label>king's robes</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQED_Apparel_GeneralsCap"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQED_Apparel_GeneralsCap"]</xpath><value><label>general's cap</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Facility_VitalsCentre"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Facility_VitalsCentre"]</xpath><value><label>vitals center</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="RG_SychiCap"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="RG_SychiCap"]</xpath><value><label>sychi cap</label></value><success>Always</success></Operation>
+
+	<!-- ===== Different things that shared a name ===== -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VAE_Apparel_LabCoat"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VAE_Apparel_LabCoat"]</xpath><value><label>sterile lab coat</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFE_FloorLamp"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFE_FloorLamp"]</xpath><value><label>recessed floor light</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_AutofillShelf"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_AutofillShelf"]</xpath><value><label>autofill shelf</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VREA_ArtificialNose"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VREA_ArtificialNose"]</xpath><value><label>android nose</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/HediffDef[defName="VREA_ArtificialNose"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/HediffDef[defName="VREA_ArtificialNose"]</xpath><value><label>android nose</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeMinigun"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeMinigun"]</xpath><value><label>charge minigun</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="RB_SmoothGravshipHull"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="RB_SmoothGravshipHull"]</xpath><value><label>smooth gravship hull</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/TerrainDef[defName="RB_BurnedFineWoodPlankFloor"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/TerrainDef[defName="RB_BurnedFineWoodPlankFloor"]</xpath><value><label>burned fine wood floor</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VCE_Agave"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VCE_Agave"]</xpath><value><label>agave plant</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VCE_Grass"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VCE_Grass"]</xpath><value><label>cultivated grass</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEE_Candelabra"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEE_Candelabra"]</xpath><value><label>electric candelabra</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Shelf_WeaponRack"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Shelf_WeaponRack"]</xpath><value><label>small weapon rack</label></value><success>Always</success></Operation>
+
+	<!-- ===== Ferny's naming conventions ===== -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Heater"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Heater"]</xpath><value><label>standing heater</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VTE_WallHeater"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VTE_WallHeater"]</xpath><value><label>heater</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="TorchLamp"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="TorchLamp"]</xpath><value><label>torch</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="TorchWallLamp"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="TorchWallLamp"]</xpath><value><label>wall torch</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="DiningChair"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="DiningChair"]</xpath><value><label>chair</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="PlantPot"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="PlantPot"]</xpath><value><label>plant decoration</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFE_TableButcherElectric"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFE_TableButcherElectric"]</xpath><value><label>electric butcher table</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="RB_RusticWall"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="RB_RusticWall"]</xpath><value><label>weak wall</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="RS_GeneCentrifuge"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="RS_GeneCentrifuge"]</xpath><value><label>genepack centrifuge</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="RS_XenoGermDuplicator"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="RS_XenoGermDuplicator"]</xpath><value><label>xenogerm replicator</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Brewing"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Brewing"]</xpath><value><label>brewing</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MF_RoyalFurniture"]/label</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MF_RoyalFurniture"]</xpath><value><label>royal furniture</label></value><success>Always</success></Operation>
+
+	<!-- ===== Descriptions (from Consistent Text, plus the kiwi egg fix) ===== -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/MainButtonDef[defName="History"]/description</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/MainButtonDef[defName="History"]</xpath><value><description>Review historical records, faction statistics, wealth, and graphs.</description></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/MainButtonDef[defName="VFEE_Royalty"]/description</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/MainButtonDef[defName="VFEE_Royalty"]</xpath><value><description>View and manage your faction's dealings with the Empire's great hierarchy.</description></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Joy_InudstrialComputer"]/description</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Joy_InudstrialComputer"]</xpath><value><description>A bulky computer standing on a small desk for personal use. The screen flickers, the keys stick, and it hums loudly. It can run basic software which can entertain and slowly train colonist intellectual skills.</description></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="RG_EggKiwiUnfertilized"]/description</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="RG_EggKiwiUnfertilized"]</xpath><value><description>An unfertilized kiwi egg. It can be eaten raw, but it's much, much better cooked.</description></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VanillaGravshipExpanded.StartingGravshipDef[defName="VGE_StartingGravjumper_Default"]/description</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VanillaGravshipExpanded.StartingGravshipDef[defName="VGE_StartingGravjumper_Default"]</xpath><value><description>The baseline starting gravjumper.</description></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VanillaGravshipExpanded.StartingGravshipDef[defName="VGE_StartingGravjumper_OdysseyDLC"]/description</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VanillaGravshipExpanded.StartingGravshipDef[defName="VGE_StartingGravjumper_OdysseyDLC"]</xpath><value><description>A classic-feeling old-school gravjumper.</description></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VanillaGravshipExpanded.StartingGravshipDef[defName="VGE_StartingGravship_Default"]/description</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VanillaGravshipExpanded.StartingGravshipDef[defName="VGE_StartingGravship_Default"]</xpath><value><description>The baseline starting gravship.</description></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/TraitDef[defName="VTE_Stoner"]/degreeDatas/li/description</xpath><value><description>Smokeleaf is a way of life for {PAWN_nameDef}. {PAWN_pronoun} is permanently dependent on it, and would rather die than give it up.</description></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/TraitDef[defName="VTE_Lush"]/degreeDatas/li/description</xpath><value><description>Alcohol is a way of life for {PAWN_nameDef}. {PAWN_pronoun} is permanently dependent on it, and would rather die than give it up.</description></value><success>Always</success></Operation>
+</Patch>

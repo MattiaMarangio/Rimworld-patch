@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Unified Research Tree: extra item categories (bill menus and stockpile filters) -->
+<Defs>
+	<ThingCategoryDef>
+		<defName>URT_ArmorTorso</defName>
+		<label>torso &amp; legs</label>
+		<parent>ApparelArmor</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_ArmorHandwear</defName>
+		<label>handwear</label>
+		<parent>ApparelArmor</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_ArmorFootwear</defName>
+		<label>footwear</label>
+		<parent>ApparelArmor</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Handwear</defName>
+		<label>handwear</label>
+		<parent>Apparel</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Footwear</defName>
+		<label>footwear</label>
+		<parent>Apparel</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_RangedShort</defName>
+		<label>short range</label>
+		<parent>WeaponsRanged</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_RangedMedium</defName>
+		<label>medium range</label>
+		<parent>WeaponsRanged</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_RangedLong</defName>
+		<label>long range</label>
+		<parent>WeaponsRanged</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_UniqueShort</defName>
+		<label>short range</label>
+		<parent>WeaponsUnique</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_UniqueMedium</defName>
+		<label>medium range</label>
+		<parent>WeaponsUnique</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_UniqueLong</defName>
+		<label>long range</label>
+		<parent>WeaponsUnique</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Components</defName>
+		<label>components &amp; chips</label>
+		<parent>Manufactured</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Fuel</defName>
+		<label>fuel &amp; gases</label>
+		<parent>Manufactured</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Materials</defName>
+		<label>materials</label>
+		<parent>Manufactured</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Brewing</defName>
+		<label>brewing</label>
+		<parent>Manufactured</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_ShipParts</defName>
+		<label>ship parts</label>
+		<parent>Manufactured</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_AnimalFeed</defName>
+		<label>animal feed</label>
+		<parent>Foods</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Preserved</defName>
+		<label>preserved &amp; snacks</label>
+		<parent>Foods</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Seeds</defName>
+		<label>seeds</label>
+		<parent>ItemsMisc</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Genetics</defName>
+		<label>genetics</label>
+		<parent>ItemsMisc</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_AnomalyItems</defName>
+		<label>anomaly</label>
+		<parent>ItemsMisc</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_AnimalParts</defName>
+		<label>animal parts</label>
+		<parent>ItemsMisc</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_CoresTech</defName>
+		<label>cores &amp; tech</label>
+		<parent>ItemsMisc</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Intel</defName>
+		<label>intel</label>
+		<parent>ItemsMisc</parent>
+	</ThingCategoryDef>
+	<ThingCategoryDef>
+		<defName>URT_Waste</defName>
+		<label>waste</label>
+		<parent>ItemsMisc</parent>
+	</ThingCategoryDef>
+</Defs>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Unified Research Tree</name>
+	<author>Mattia Marangio</author>
+	<packageId>mattia.unifiedresearchtree</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<description>One research tab instead of five, laid out so it reads cleanly, plus tidier item categories and consistent names. XML patches only.
+
+Research: moves the Basics, ReGrowth and Vanilla Expanded projects into Main and removes those tabs (Anomaly and Gravtech untouched). Projects are arranged by what unlocks what, eras left to right, key projects on one centre line, and the tree fits the screen height. Merges: Bows, Crossbows, Advanced clothing, Military clothing (with camouflage), Eltex gear (with caster gear); scarecrow in Cultivation; leather armor in Leather tanning; wine needs Brewing.
+
+Item categories: apparel and armor by body slot, ranged weapons by range, tidier Manufactured, Foods and Misc groups.
+
+Names: base-game lowercase style, clearer and non-duplicate item names, typo fixes.
+
+Storytellers: only Cassandra, Phoebe and Randy are offered; storytellers added by mods are hidden (saves using them keep working).
+
+RimWorld 1.6. Load at the bottom. Built around all DLCs and the Vanilla Expanded series, ReGrowth 2, ReBuild, ReSplice and Cat's Boots and Gloves; changes for a mod only apply if it is active. Safe to add mid-save.</description>
+	<loadAfter>
+		<li>ludeon.rimworld.anomaly</li>
+		<li>ludeon.rimworld.biotech</li>
+		<li>ludeon.rimworld.ideology</li>
+		<li>ludeon.rimworld.odyssey</li>
+		<li>ludeon.rimworld.royalty</li>
+		<li>oskarpotocki.vfe.deserters</li>
+		<li>oskarpotocki.vfe.empire</li>
+		<li>oskarpotocki.vfe.medieval2</li>
+		<li>oskarpotocki.vfe.tribals</li>
+		<li>regrowth.botr.core</li>
+		<li>shavius.vepatches</li>
+		<li>vanillaexpanded.gravship</li>
+		<li>vanillaexpanded.gravship2</li>
+		<li>vanillaexpanded.temperature</li>
+		<li>vanillaexpanded.vappe</li>
+		<li>vanillaexpanded.varme</li>
+		<li>vanillaexpanded.vfecore</li>
+		<li>vanillaexpanded.vfefarming</li>
+		<li>vanillaexpanded.vfepower</li>
+		<li>vanillaexpanded.vfeproduction</li>
+		<li>vanillaexpanded.vfesecurity</li>
+		<li>vanillaexpanded.vfespacer</li>
+		<li>vanillaexpanded.vpsycastse</li>
+		<li>vanillaexpanded.vwe</li>
+		<li>vanillaquestsexpanded.dronefactory</li>
+		<li>vanillaracesexpanded.android</li>
+	</loadAfter>
+</ModMetaData>
