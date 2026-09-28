@@ -3,16 +3,10 @@
 <Patch>
 
 	<!-- ===== 1. Items and recipes that change research ===== -->
-	<!-- greatbow: Greatbow -> RecurveBow -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="Bow_Great"]/recipeMaker/researchPrerequisite[.="Greatbow"]</xpath><value><researchPrerequisite>RecurveBow</researchPrerequisite></value><success>Always</success></Operation>
 	<!-- leather helmet: Smithing -> VAE_LeatherTanning -->
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_LeatherHelmet"]/recipeMaker/researchPrerequisite[.="Smithing"]</xpath><value><researchPrerequisite>VAE_LeatherTanning</researchPrerequisite></value><success>Always</success></Operation>
 	<!-- leather armor: Smithing -> VAE_LeatherTanning -->
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_LeatherArmor"]/recipeMaker/researchPrerequisite[.="Smithing"]</xpath><value><researchPrerequisite>VAE_LeatherTanning</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- warbow: Greatbow -> RecurveBow -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFEM2_Warbow"]/recipeMaker/researchPrerequisite[.="Greatbow"]</xpath><value><researchPrerequisite>RecurveBow</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- longbow: Greatbow -> RecurveBow -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VWE_Bow_Long"]/recipeMaker/researchPrerequisite[.="Greatbow"]</xpath><value><researchPrerequisite>RecurveBow</researchPrerequisite></value><success>Always</success></Operation>
 	<!-- make eltex mask: VPE_CasterGear -> VPE_EltexGear -->
 	<Operation Class="PatchOperationReplace"><xpath>Defs/RecipeDef[defName="VPE_Make_EltexMask"]/researchPrerequisite[.="VPE_CasterGear"]</xpath><value><researchPrerequisite>VPE_EltexGear</researchPrerequisite></value><success>Always</success></Operation>
 	<!-- make eltex cape: VPE_CasterGear -> VPE_EltexGear -->
@@ -59,6 +53,9 @@
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Headgear_Sunglasses"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
 	<!-- glasses: VAE_CasualWear -> VAE_WorkAttire -->
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Headgear_Glasses"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
+	<!-- crossbow and arbalest -> Crossbows (new project, after Greatbows) -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VWE_Bow_Crossbow"]/recipeMaker/researchPrerequisite[.="Greatbow"]</xpath><value><researchPrerequisite>URT_Crossbows</researchPrerequisite></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFEM2_Arbalest"]/recipeMaker/researchPrerequisite[.="Greatbow"]</xpath><value><researchPrerequisite>URT_Crossbows</researchPrerequisite></value><success>Always</success></Operation>
 	<!-- heavy leather armor and helmet: Plate armor AND Leather tanning -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherArmor"]/recipeMaker/researchPrerequisite[.="PlateArmor"]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherArmor"]/recipeMaker</xpath><value><researchPrerequisites><li>PlateArmor</li><li>VAE_LeatherTanning</li></researchPrerequisites></value><success>Always</success></Operation>
@@ -70,14 +67,10 @@
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFES_BarbedWire"]/researchPrerequisites/li[.="VWE_TrenchWarfare"]</xpath><value><li>Machining</li></value><success>Always</success></Operation>
 
 	<!-- ===== 2. Research projects: names, costs, descriptions, prerequisites ===== -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]/label</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]</xpath><value><label>bows</label></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]/description</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]</xpath><value><description>Craft wooden bows for hunting and war: recurve bows, greatbows, longbows and warbows.</description></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]/label</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><label>crossbows</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><label>greatbows</label></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]/description</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><description>Build mechanical crossbows and heavy arbalests that fire powerful bolts.</description></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><description>Craft long-range war bows: greatbows, longbows and warbows.</description></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]/label</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]</xpath><value><label>advanced clothing</label></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]/baseCost</xpath><success>Always</success></Operation>

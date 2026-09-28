@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Unified Research Tree: research projects added by this mod -->
+<Defs>
+	<ResearchProjectDef>
+		<defName>URT_Crossbows</defName>
+		<label>crossbows</label>
+		<description>Build mechanical crossbows and heavy arbalests that fire powerful bolts.</description>
+		<baseCost>600</baseCost>
+		<techLevel>Medieval</techLevel>
+		<prerequisites>
+			<li>Greatbow</li>
+		</prerequisites>
+		<tab>Main</tab>
+		<researchViewX>10.00</researchViewX>
+		<researchViewY>5.40</researchViewY>
+		<generalRules>
+			<rulesStrings>
+				<li>subject->crossbows</li>
+				<li>subject_story->loosed a bolt clean through a raider's shield from the castle wall</li>
+				<li>subject_gerund->building crossbows</li>
+			</rulesStrings>
+		</generalRules>
+	</ResearchProjectDef>
+</Defs>

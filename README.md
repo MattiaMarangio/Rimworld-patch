@@ -3,7 +3,7 @@
 One research tab instead of five, laid out so it reads cleanly, plus tidier item categories, consistent names and base-game storytellers only. XML patches only, no code.
 
 ## Research tabs
-- Moves 61 projects into **Main**: 46 from **Vanilla Expanded**, 13 from **Basics** (VFE Tribals) and 2 from **ReGrowth**. Main then holds 182 projects.
+- Moves 61 projects into **Main**: 46 from **Vanilla Expanded**, 13 from **Basics** (VFE Tribals) and 2 from **ReGrowth**. Main then holds 183 projects, including the new Crossbows project.
 - Removes the **Vanilla Expanded**, **Basics** and **ReGrowth** tabs. A tab is only removed if no research still uses it, so a mod update that adds new projects there keeps its tab.
 - **Anomaly** and **Gravtech** are not touched.
 
@@ -18,8 +18,8 @@ Costs are unchanged unless stated.
 
 | Project | Change |
 |---|---|
-| **Bows** (was *recurve bow*, 400) | Now also unlocks the greatbow, longbow and warbow |
-| **Crossbows** (was *greatbow*, 600) | Unlocks the crossbow and arbalest |
+| **Greatbows** (was *greatbow*, 600) | Unlocks the greatbow, longbow and warbow. Requires Recurve bow (unchanged from vanilla) |
+| **Crossbows** (new, 600) | Unlocks the crossbow and arbalest (were under Greatbow). Requires Greatbows |
 | **Advanced clothing** (was *work attire*) | Cost 1,000 → **2,000**. Unlocks everything from work attire, casual wear, formal wear and sterile attire: builder's jacket, chef's toque, chef's uniform, fleece shirt, hardhat, jeans, jumpsuit, overalls, baseball cap, casual T-shirt, glasses, hoodie, scarf, shorts, sunglasses, tank top, fedora, shirt and tie, skirt, suit jacket, trousers, doctor scrubs, sterile lab coat, surgical mask |
 | **Military clothing** | Now also unlocks the ghillie hood and ghillie suit. Requires Advanced clothing (was work attire + sterile attire) |
 | **Eltex gear** | Now also unlocks the eltex cape, mask, dagger, mace and sword. Requires Noble apparel (was Complex clothing) |
