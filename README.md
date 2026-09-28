@@ -25,8 +25,14 @@ Costs are unchanged unless stated. Links to the Basics projects only apply when 
 | **Military clothing** | Now also unlocks the ghillie hood and ghillie suit. Requires Advanced clothing (was work attire + sterile attire) |
 | **Eltex gear** | Now also unlocks the eltex cape, mask, dagger, mace and sword. Requires Noble apparel (was Complex clothing) |
 | **Cultivation** (Basics) | Now also unlocks the scarecrow |
-| **Basic furniture** | Requires Furniture (Basics). Now also unlocks the fueled stove and butcher table (were under Construction) and the fur bed (was under Complex furniture). Chain: Construction > Furniture > Basic furniture > Complex furniture |
+| **Basic furniture** | Requires Furniture (Basics). Now also unlocks the fueled stove and butcher table (were under Construction) and the fur bed and double fur bed (were under Complex furniture). Chain: Construction > Furniture > Basic furniture > Complex furniture |
 | **Complex clothing** | Requires Tribalwear (Basics) |
+| **Stonecutting** | Requires Mining (Basics) |
+| **Smithing** | Requires Weapons (Basics) |
+| **Brewing** | Requires Cultivation (Basics) |
+| **Pemmican** | Requires Hunting (Basics) |
+| **Drug production** | Requires Medicine (Basics) |
+| **Harp** | Requires Culture (Basics) as well as Complex furniture |
 | **Leather tanning** | Now also unlocks leather armor and leather helmet (were under Smithing) |
 | Heavy leather armor and helmet | Require **Plate armor and Leather tanning** (were Plate armor only) |
 | **Wine** | Requires Brewing (had no requirement) |

@@ -12,7 +12,7 @@
 		</prerequisites>
 		<tab>Main</tab>
 		<researchViewX>7.00</researchViewX>
-		<researchViewY>6.60</researchViewY>
+		<researchViewY>6.00</researchViewY>
 		<generalRules>
 			<rulesStrings>
 				<li>subject->crossbows</li>
