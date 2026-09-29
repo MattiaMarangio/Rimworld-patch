@@ -56,12 +56,12 @@ These are the groups used by bill menus and by stockpile and outfit filters.
 **Armor** has the same slots: headgear, torso & legs, shields (moved here from Apparel), handwear and footwear. Armor means everything already marked as armor, plus helmets, boots and gloves from armor sets (plate, flak, recon, marine, riot, vacsuit, power armor) and other items with built-in sharp armor of 50% or more.
 
 **Weapons:**
-- **ranged**: renamed from "ranged weapons", sorted by range: short range (26 tiles or less), medium range (27–35), long range (36+), plus grenades
+- **ranged**: renamed from "ranged weapons", sorted by range to match the game's accuracy distances (short 12, medium 25, long 40): short range (up to 18 tiles), medium range (19–32), long range (33+), plus grenades
 - **unique weapons**: the same three ranges
 - **melee**: renamed from "melee weapons". Persona weapons are unchanged.
 
 **Manufactured**: new groups for components & chips, fuel & gases, materials, brewing and ship parts.
-**Foods**: new groups for animal feed and preserved & snacks.
+**Foods**: new groups for animal feed and preserved & snacks. Raw fruits (Vanilla Plants Expanded) appear inside raw food in the resources list instead of as a separate top-level entry.
 **Misc** (under Items): new groups for seeds, genetics, anomaly, animal parts, cores & tech, intel and waste.
 
 Items keep their existing parent groups (Apparel, Armor, Weapons, Manufactured and so on), so traders, outfits and other mods that rely on those groups work as before. Existing stockpiles keep what they allow.

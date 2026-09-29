@@ -9,6 +9,9 @@
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingCategoryDef[defName="ApparelNoble"]/label</xpath><value><label>noble</label></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingCategoryDef[defName="VFEC_Shields"]/parent</xpath><value><parent>ApparelArmor</parent></value><success>Always</success></Operation>
 
+	<!-- ===== Raw fruits sit inside Foods &gt; raw food in the resources list instead of being their own top-level entry ===== -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingCategoryDef[defName="VCE_Fruit"]/resourceReadoutRoot</xpath><success>Always</success></Operation>
+
 	<!-- ===== Item moves: clear the old category, then set the new one ===== -->
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Apparel_Broadwrap"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Apparel_Broadwrap"]</xpath><value><thingCategories Inherit="False"><li>ApparelMisc</li></thingCategories></value><success>Always</success></Operation>
@@ -314,6 +317,8 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_BoltActionRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChargeBlasterHeavyTurret"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChargeBlasterHeavyTurret"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChargeLance"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChargeLance"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_DoomsdayRocket"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_DoomsdayRocket"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_InfernoCannonTurret"]/thingCategories</xpath><success>Always</success></Operation>
@@ -338,10 +343,14 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Warbow"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQE_Gun_Lance"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQE_Gun_Lance"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWEB_Gun_PiercerRifle"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWEB_Gun_PiercerRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Bow_Long"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Bow_Long"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_AntiMaterialRifle"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_AntiMaterialRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_Autocannon"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_Autocannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeRocketLauncher"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeRocketLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeSniperRifle"]/thingCategories</xpath><success>Always</success></Operation>
@@ -358,26 +367,80 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_UraniumSlugRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Bow_Great"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Bow_Great"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Bow_Recurve"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Bow_Recurve"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Bow_Short"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Bow_Short"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Flamebow"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Flamebow"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_AssaultRifle"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_AssaultRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Autopistol"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Autopistol"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_BeamGraser"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_BeamGraser"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_BeamRepeater"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_BeamRepeater"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChargeBlasterHeavy"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChargeBlasterHeavy"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChargeLance"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChargeLance"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChargeRifle"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChargeRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_EmpLauncher"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_EmpLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_HeavySMG"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_HeavySMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_HellcatRifle"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_HellcatRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_HellsphereCannon"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_HellsphereCannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_IncendiaryLauncher"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_IncendiaryLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_InfernoCannon"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_InfernoCannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_LMG"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_LMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_MachinePistol"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_MachinePistol"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Minigun"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Minigun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_NeedleLauncher"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_NeedleLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Revolver"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Revolver"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Scattergun"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Scattergun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Slugthrower"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Slugthrower"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_SmokeLauncher"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_SmokeLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ThumpCannon"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ThumpCannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ToxbombLauncher"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ToxbombLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="NerveSpiker"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="NerveSpiker"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Pila"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Pila"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFED_Gun_ChargeCycler"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFED_Gun_ChargeCycler"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEE_Gun_ChargeThumper"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEE_Gun_ChargeThumper"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_Gun_Flintlock"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Gun_Flintlock"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VGE_MassLance"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VGE_MassLance"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VGE_RocketswarmPod"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VGE_RocketswarmPod"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQED_Gun_Autopistol_Ancient"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQED_Gun_Autopistol_Ancient"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQED_Gun_LMG_Ancient"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQED_Gun_LMG_Ancient"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQED_Gun_MachinePistol_Ancient"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQED_Gun_MachinePistol_Ancient"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQE_Gun_DroneTurret"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQE_Gun_DroneTurret"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQE_Gun_Rattlegun"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQE_Gun_Rattlegun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQE_Gun_StingrayCannon"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQE_Gun_StingrayCannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQE_Gun_Stubgun"]/thingCategories</xpath><success>Always</success></Operation>
@@ -386,132 +449,72 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWEB_Gun_CycloneMinigun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWEB_Gun_FlarestrikeRifle"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWEB_Gun_FlarestrikeRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWEB_Gun_PiercerRifle"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWEB_Gun_PiercerRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWEB_HeavyIncinerator"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWEB_HeavyIncinerator"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Bow_Compound"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Bow_Compound"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Bow_Crossbow"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Bow_Crossbow"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_Autocannon"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_Autocannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_CombatHandgun"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_CombatHandgun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_BattleRifle"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_BattleRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_Carbine"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_Carbine"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeLMG"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeLMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeMinigun"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeMinigun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargePistol"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargePistol"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_GrenadeLauncher"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_GrenadeLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_HMG"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_HMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_HeavyFlamer"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_HeavyFlamer"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_LeverActionRifle"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_LeverActionRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_LightSMG"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_LightSMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_SMG"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_SMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_SemiAutomaticRifle"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_SemiAutomaticRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ServiceRifle"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ServiceRifle"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedMedium</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Bow_Recurve"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Bow_Recurve"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Bow_Short"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Bow_Short"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Flamebow"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Flamebow"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Autopistol"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Autopistol"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_BeamGraser"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_BeamGraser"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_BeamRepeater"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_BeamRepeater"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChainShotgun"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChainShotgun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_EmpLauncher"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_EmpLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_HeavySMG"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_HeavySMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_HellsphereCannon"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_HellsphereCannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_IncendiaryLauncher"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_IncendiaryLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Incinerator"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Incinerator"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_LMG"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_LMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_MachinePistol"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_MachinePistol"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_MiniFlameblaster"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_MiniFlameblaster"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_MiniShotgun"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_MiniShotgun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_NeedleLauncher"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_NeedleLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_PumpShotgun"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_PumpShotgun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Revolver"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Revolver"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Scattergun"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Scattergun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Slugthrower"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Slugthrower"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_SmokeLauncher"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_SmokeLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Spiner"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Spiner"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ThumpCannon"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ThumpCannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ToxbombLauncher"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ToxbombLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Pila"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Pila"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFED_Gun_ChargeCycler"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFED_Gun_ChargeCycler"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFED_Gun_Fletchling"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFED_Gun_Fletchling"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEE_Gun_ChargeThumper"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEE_Gun_ChargeThumper"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_Gun_Flintlock"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Gun_Flintlock"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_Gun_HandCannon"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Gun_HandCannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_ThrowingAxe"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_ThrowingAxe"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFET_Throwspikes"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFET_Throwspikes"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VGE_RocketswarmPod"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VGE_RocketswarmPod"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQED_Gun_Autopistol_Ancient"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQED_Gun_Autopistol_Ancient"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQED_Gun_LMG_Ancient"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQED_Gun_LMG_Ancient"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQED_Gun_MachinePistol_Ancient"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQED_Gun_MachinePistol_Ancient"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQED_Gun_PumpShotgun_Ancient"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQED_Gun_PumpShotgun_Ancient"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VQE_Gun_Rattlegun"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VQE_Gun_Rattlegun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWEB_Gun_FirestormShotgun"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWEB_Gun_FirestormShotgun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWEB_HeavyIncinerator"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWEB_HeavyIncinerator"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_CombatHandgun"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_CombatHandgun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_Carbine"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_Carbine"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargePistol"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargePistol"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeSMG"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeSMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeShotgun"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeShotgun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_Flamethrower"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_Flamethrower"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_GrenadeLauncher"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_GrenadeLauncher"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_HeavyFlamer"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_HeavyFlamer"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_LightSMG"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_LightSMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_SMG"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_SMG"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_SawedOffShotgun"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_SawedOffShotgun"]</xpath><value><thingCategories Inherit="False"><li>URT_RangedShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Throwing_Knives"]/thingCategories</xpath><success>Always</success></Operation>
@@ -536,6 +539,8 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="ShuttleEngine"]</xpath><value><thingCategories Inherit="False"><li>URT_ShipParts</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_BoltActionRifle_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_BoltActionRifle_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueLong</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChargeLance_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChargeLance_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_SniperRifle_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_SniperRifle_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueLong</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Bow_Long_Unique"]/thingCategories</xpath><success>Always</success></Operation>
@@ -550,58 +555,56 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Bow_Great_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_AssaultRifle_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_AssaultRifle_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChargeLance_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChargeLance_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_BeamRepeater_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_BeamRepeater_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChargeRifle_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChargeRifle_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_HeavySMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_HeavySMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_HellcatRifle_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_HellcatRifle_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_LMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_LMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Minigun_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Minigun_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Revolver_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Revolver_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Bow_Compound_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Bow_Compound_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Bow_Crossbow_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Bow_Crossbow_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_BattleRifle_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_BattleRifle_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_Carbine_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_Carbine_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeLMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeLMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeMinigun_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeMinigun_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargePistol_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargePistol_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_CombatHandgun_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_CombatHandgun_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_HMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_HMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_LeverActionRifle_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_LeverActionRifle_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_LightSMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_LightSMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_SMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_SMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_SemiAutomaticRifle_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_SemiAutomaticRifle_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ServiceRifle_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ServiceRifle_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueMedium</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_BeamRepeater_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_BeamRepeater_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_ChainShotgun_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_ChainShotgun_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_HeavySMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_HeavySMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_LMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_LMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Gun_Revolver_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="Gun_Revolver_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_Carbine_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_Carbine_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargePistol_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargePistol_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeSMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeSMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeShotgun_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_ChargeShotgun_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_CombatHandgun_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_CombatHandgun_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_HandCannon_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_LightSMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_LightSMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_SMG_Unique"]/thingCategories</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_SMG_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_SawedOffShotgun_Unique"]/thingCategories</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VWE_Gun_SawedOffShotgun_Unique"]</xpath><value><thingCategories Inherit="False"><li>URT_UniqueShort</li></thingCategories></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VWE_Gun_TrenchGun_Unique"]/thingCategories</xpath><success>Always</success></Operation>
