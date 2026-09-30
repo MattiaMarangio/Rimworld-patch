@@ -81,12 +81,6 @@
 		<iconPath>UI/Icons/ThingCategories/PlantMatter</iconPath>
 	</ThingCategoryDef>
 	<ThingCategoryDef>
-		<defName>URT_ShipParts</defName>
-		<label>ship parts</label>
-		<parent>Manufactured</parent>
-		<iconPath>Things/Building/Ruins/AncientDropshipEngine</iconPath>
-	</ThingCategoryDef>
-	<ThingCategoryDef>
 		<defName>URT_AnimalFeed</defName>
 		<label>animal feed</label>
 		<parent>Foods</parent>
