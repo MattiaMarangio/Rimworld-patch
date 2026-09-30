@@ -8,10 +8,11 @@ One research tab instead of five, laid out so it reads cleanly, plus tidier item
 - **Anomaly** and **Gravtech** are not touched.
 
 ## Research layout
-- Every Main project gets a new position: 36 columns wide, 14 rows tall. The whole tree fits the screen height, so you only scroll sideways.
+- Every Main project gets a new position: 36 columns wide, 13 rows tall. The whole tree fits the screen height, so you only scroll sideways.
 - Tech eras run left to right, from the Basics projects through to Starflight. Each project sits to the right of everything it requires.
 - Fire, Electricity, Microelectronics, Multi-analyzer, Fabrication, Advanced fabrication and Starflight basics sit on one horizontal centre line. The rest of the tree branches up and down from them.
 - Projects of the same theme (food, power, apparel, weapons and so on) are kept close together. The five starship projects share one column.
+- Some requirement lines are hidden to keep the tree readable. They are still required, only the line is not drawn: Drug production → Medicine production, Smithing → Harpsichord, Modern furniture → Spacer furniture, Shields → Siegebreaker armor, Shields → Repulsor technology, Hydroponics → Artificial ecosystems, Heavy weapons → Laser targeting systems, and the Basics lines to Harp, Pemmican and Stonecutting.
 
 ## Merged and adjusted research
 Costs are unchanged unless stated. Links to the Basics projects only apply when VFE Tribals is active; for non-tribal starts VFE Tribals completes the Basics projects automatically.
@@ -27,13 +28,13 @@ Costs are unchanged unless stated. Links to the Basics projects only apply when 
 | **Cultivation** (Basics) | Now also unlocks the scarecrow |
 | **Basic furniture** | Requires Furniture (Basics). Now also unlocks the fueled stove and butcher table (were under Construction) and the fur bed and double fur bed (were under Complex furniture). Chain: Construction > Furniture > Basic furniture > Complex furniture |
 | **Complex clothing** | Requires Tribalwear (Basics) |
-| **Stonecutting** | Requires Mining (Basics) |
+| **Stonecutting** | Requires Mining (Basics), line hidden |
 | **Smithing** | Requires Weapons (Basics) |
 | **Brewing** | Requires Cultivation (Basics) |
-| **Pemmican** | Requires Hunting (Basics) |
+| **Pemmican** | Requires Hunting (Basics), line hidden |
 | **Drug production** | Requires Medicine (Basics) |
 | **Culture** (Basics) | Shows a single line from Furniture. Medicine, Tribalwear, Animal handling and Bow are still required but no longer drawn |
-| **Harp** | Requires Culture (Basics) as well as Complex furniture |
+| **Harp** | Requires Culture (Basics, line hidden) as well as Complex furniture |
 | **Leather tanning** | Now also unlocks leather armor and leather helmet (were under Smithing) |
 | Heavy leather armor and helmet | Require **Plate armor and Leather tanning** (were Plate armor only) |
 | **Wine** | Requires Brewing (had no requirement) |
