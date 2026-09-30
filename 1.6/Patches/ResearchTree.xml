@@ -100,6 +100,15 @@
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VQE_Dronetech"]</xpath><value><description>Unlocks the ability to construct specialized work drones, hunter drone packs and traps, and the infrastructure to keep them operational.</description></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]/prerequisites</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]</xpath><value><prerequisites Inherit="False"><li>Electricity</li><li MayRequire="vanillaquestsexpanded.dronefactory">VQE_Dronetech</li></prerequisites></value><success>Always</success></Operation>
+	<!-- Basic mechtech: Electricity is already required through Machining and Dronetech, so drop the extra line (only when Drone Factory provides Dronetech) -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Vanilla Quests Expanded - Drone Factory</li></mods>
+		<match Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]/prerequisites/li[.="Electricity"]</xpath><success>Always</success></match>
+	</Operation>
+	<!-- Marine armor: its hidden Complex clothing requirement is already covered by Recon armor -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PoweredArmor"]/hiddenPrerequisites/li[.="ComplexClothing"]</xpath><success>Always</success></Operation>
+	<!-- Gunsmithing: Matchlocks is listed twice by two different mods; keep one -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Gunsmithing"]/prerequisites/li[.="VFEM2_Matchlocks"][2]</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_RemoteDemolition"]/label</xpath><success>Always</success></Operation>
 	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFED_RemoteDemolition"]</xpath><value><label>imperial war solutions I</label></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialWarSolutions"]/label</xpath><success>Always</success></Operation>

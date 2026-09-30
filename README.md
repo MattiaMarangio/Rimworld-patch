@@ -40,7 +40,9 @@ Costs are unchanged unless stated. Links to the Basics projects only apply when 
 | **Gunsmithing** | Now also unlocks the trench gun and flamethrower (were under Trench warfare) |
 | **Machining** | Now also unlocks razor wire (was under Trench warfare) |
 | **Dronetech** | Now also unlocks the hunter pack and hunter trap (were under Hunter drone, when Vanilla Quests Expanded - Drone Factory is active) |
-| **Basic mechtech** | Requires Dronetech as well as Electricity (when Drone Factory is active) |
+| **Basic mechtech** | Requires Dronetech instead of Electricity, which Dronetech already needs (when Drone Factory is active) |
+| **Marine armor** | Drops its hidden Complex clothing requirement, already covered by Recon armor |
+| **Gunsmithing** | Lists Matchlocks once (two mods each added it) |
 | **Imperial war solutions I / II** | The two Deserters projects that shared the name "imperial war solutions" are numbered |
 
 **Removed** (everything they unlocked is listed above): Farming techniques, Caster gear, Casual wear, Formal wear, Sterile attire, Military camouflage, and Hunter drone (when Drone Factory is active).
