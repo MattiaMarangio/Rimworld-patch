@@ -60,7 +60,7 @@
 		<defName>URT_Components</defName>
 		<label>components &amp; chips</label>
 		<parent>Manufactured</parent>
-		<iconPath>UI/Icons/ThingCategories/Manufactured</iconPath>
+		<iconPath>Things/Item/Special/AIPersonaCore</iconPath>
 	</ThingCategoryDef>
 	<ThingCategoryDef>
 		<defName>URT_Fuel</defName>
@@ -84,7 +84,7 @@
 		<defName>URT_ShipParts</defName>
 		<label>ship parts</label>
 		<parent>Manufactured</parent>
-		<iconPath>UI/Icons/ThingCategories/Manufactured</iconPath>
+		<iconPath>Things/Building/Ruins/AncientDropshipEngine</iconPath>
 	</ThingCategoryDef>
 	<ThingCategoryDef>
 		<defName>URT_AnimalFeed</defName>
@@ -96,7 +96,7 @@
 		<defName>URT_Preserved</defName>
 		<label>preserved &amp; snacks</label>
 		<parent>Foods</parent>
-		<iconPath>UI/Icons/ThingCategories/FoodMeals</iconPath>
+		<iconPath>Things/Building/Ruins/CrateSmall</iconPath>
 	</ThingCategoryDef>
 	<ThingCategoryDef>
 		<defName>URT_Seeds</defName>
