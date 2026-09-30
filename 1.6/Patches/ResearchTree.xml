@@ -1,759 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Unified Research Tree: research tree. Operations run top to bottom. -->
+<!-- Unified Research Tree: research tree. Operations run top to bottom.
+     Searches name the definition type and match names with string(defName)="X"; a group is one operation with a name list, contains("|a|b|c|",concat("|",defName,"|")), which matches any definition named in it. -->
 <Patch>
 
-	<!-- ===== 1. Items and recipes that change research ===== -->
-	<!-- leather helmet: Smithing -> VAE_LeatherTanning -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_LeatherHelmet"]/recipeMaker/researchPrerequisite[.="Smithing"]</xpath><value><researchPrerequisite>VAE_LeatherTanning</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- leather armor: Smithing -> VAE_LeatherTanning -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_LeatherArmor"]/recipeMaker/researchPrerequisite[.="Smithing"]</xpath><value><researchPrerequisite>VAE_LeatherTanning</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- make eltex mask: VPE_CasterGear -> VPE_EltexGear -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/RecipeDef[defName="VPE_Make_EltexMask"]/researchPrerequisite[.="VPE_CasterGear"]</xpath><value><researchPrerequisite>VPE_EltexGear</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- make eltex cape: VPE_CasterGear -> VPE_EltexGear -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/RecipeDef[defName="VPE_Make_EltexCape"]/researchPrerequisite[.="VPE_CasterGear"]</xpath><value><researchPrerequisite>VPE_EltexGear</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- VPE_BaseMeleeWeapon_Eltex_Sharp: VPE_CasterGear -> VPE_EltexGear -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[@Name="VPE_BaseMeleeWeapon_Eltex_Sharp"]/recipeMaker/researchPrerequisite[.="VPE_CasterGear"]</xpath><value><researchPrerequisite>VPE_EltexGear</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- VPE_BaseMeleeWeapon_Eltex_Blunt: VPE_CasterGear -> VPE_EltexGear -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[@Name="VPE_BaseMeleeWeapon_Eltex_Blunt"]/recipeMaker/researchPrerequisite[.="VPE_CasterGear"]</xpath><value><researchPrerequisite>VPE_EltexGear</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- scarecrow: VFE_Res_FarmingTechniques -> VFET_Cultivation -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFE_Scarecrow"]/researchPrerequisites/li[.="VFE_Res_FarmingTechniques"]</xpath><value><li>VFET_Cultivation</li></value><success>Always</success></Operation>
-	<!-- ghillie suit: VAE_MlitaryCamouflage -> VAE_MilitaryClothing -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_GhillieSuit"]/recipeMaker/researchPrerequisite[.="VAE_MlitaryCamouflage"]</xpath><value><researchPrerequisite>VAE_MilitaryClothing</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- ghillie hood: VAE_MlitaryCamouflage -> VAE_MilitaryClothing -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Headgear_GhillieHood"]/recipeMaker/researchPrerequisite[.="VAE_MlitaryCamouflage"]</xpath><value><researchPrerequisite>VAE_MilitaryClothing</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- casual T-shirt: VAE_CasualWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_CasualTShirt"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- hoodie: VAE_CasualWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_Hoodie"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- shorts: VAE_CasualWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_Shorts"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- skirt: VAE_FormalWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_Skirt"]/recipeMaker/researchPrerequisite[.="VAE_FormalWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- shirt and tie: VAE_FormalWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_ShirtandTie"]/recipeMaker/researchPrerequisite[.="VAE_FormalWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- suit jacket: VAE_FormalWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_SuitJacket"]/recipeMaker/researchPrerequisite[.="VAE_FormalWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- trousers: VAE_FormalWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_Trousers"]/recipeMaker/researchPrerequisite[.="VAE_FormalWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- fedora: VAE_FormalWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Headgear_Fedora"]/recipeMaker/researchPrerequisite[.="VAE_FormalWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- doctor scrubs: VAE_SterileAttire -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_DoctorScrubs"]/recipeMaker/researchPrerequisite[.="VAE_SterileAttire"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- lab coat: VAE_SterileAttire -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_LabCoat"]/recipeMaker/researchPrerequisite[.="VAE_SterileAttire"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- tank top: VAE_CasualWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Apparel_TankTop"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- scarf: VAE_CasualWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Headgear_Scarf"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- surgical mask: VAE_SterileAttire -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Headgear_SurgicalMask"]/recipeMaker/researchPrerequisite[.="VAE_SterileAttire"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- baseball cap: VAE_CasualWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Headgear_BaseballCap"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- sunglasses: VAE_CasualWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Headgear_Sunglasses"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- glasses: VAE_CasualWear -> VAE_WorkAttire -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VAE_Headgear_Glasses"]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- crossbow and arbalest -> Crossbows (new project, after Greatbows) -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VWE_Bow_Crossbow"]/recipeMaker/researchPrerequisite[.="Greatbow"]</xpath><value><researchPrerequisite>URT_Crossbows</researchPrerequisite></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFEM2_Arbalest"]/recipeMaker/researchPrerequisite[.="Greatbow"]</xpath><value><researchPrerequisite>URT_Crossbows</researchPrerequisite></value><success>Always</success></Operation>
-	<!-- heavy leather armor and helmet: Plate armor AND Leather tanning -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherArmor"]/recipeMaker/researchPrerequisite[.="PlateArmor"]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherArmor"]/recipeMaker</xpath><value><researchPrerequisites><li>PlateArmor</li><li>VAE_LeatherTanning</li></researchPrerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherHelmet"]/recipeMaker/researchPrerequisite[.="PlateArmor"]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[defName="VFEM2_Apparel_HeavyLeatherHelmet"]/recipeMaker</xpath><value><researchPrerequisites><li>PlateArmor</li><li>VAE_LeatherTanning</li></researchPrerequisites></value><success>Always</success></Operation>
-	<!-- items whose research (Trench warfare) is hidden by Cherry Picker: give them a new one -->
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VWE_Gun_Flamethrower"]/recipeMaker/researchPrerequisite[.="VWE_TrenchWarfare"]</xpath><value><researchPrerequisite>Gunsmithing</researchPrerequisite></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VWE_TrenchGun"]/recipeMaker/researchPrerequisite[.="VWE_TrenchWarfare"]</xpath><value><researchPrerequisite>Gunsmithing</researchPrerequisite></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFES_BarbedWire"]/researchPrerequisites/li[.="VWE_TrenchWarfare"]</xpath><value><li>Machining</li></value><success>Always</success></Operation>
-	<!-- Hunter drone merges into Dronetech: hunter pack and hunter trap move there, then the empty Hunter drone project is removed. Only with Vanilla Quests Expanded - Drone Factory. -->
+	<!-- ===== Items and recipes that move to another research project ===== -->
+	<!-- make eltex mask, make eltex cape: caster gear -> eltex gear -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/RecipeDef[contains("|VPE_Make_EltexMask|VPE_Make_EltexCape|",concat("|",defName,"|"))]/researchPrerequisite[.="VPE_CasterGear"]</xpath><value><researchPrerequisite>VPE_EltexGear</researchPrerequisite></value><success>Always</success></Operation>
+	<!-- VPE_BaseMeleeWeapon_Eltex_Sharp, VPE_BaseMeleeWeapon_Eltex_Blunt: caster gear -> eltex gear -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VPE_BaseMeleeWeapon_Eltex_Sharp|VPE_BaseMeleeWeapon_Eltex_Blunt|",concat("|",@Name,"|"))]/recipeMaker/researchPrerequisite[.="VPE_CasterGear"]</xpath><value><researchPrerequisite>VPE_EltexGear</researchPrerequisite></value><success>Always</success></Operation>
+	<!-- ghillie suit, ghillie hood: military camouflage -> military clothing -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VAE_Apparel_GhillieSuit|VAE_Headgear_GhillieHood|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="VAE_MlitaryCamouflage"]</xpath><value><researchPrerequisite>VAE_MilitaryClothing</researchPrerequisite></value><success>Always</success></Operation>
+	<!-- casual T-shirt, hoodie, shorts, tank top, scarf, baseball cap, sunglasses, glasses: casual wear -> work attire -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VAE_Apparel_CasualTShirt|VAE_Apparel_Hoodie|VAE_Apparel_Shorts|VAE_Apparel_TankTop|VAE_Headgear_Scarf|VAE_Headgear_BaseballCap|VAE_Headgear_Sunglasses|VAE_Headgear_Glasses|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="VAE_CasualWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
+	<!-- skirt, shirt and tie, suit jacket, trousers, fedora: formal wear -> work attire -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VAE_Apparel_Skirt|VAE_Apparel_ShirtandTie|VAE_Apparel_SuitJacket|VAE_Apparel_Trousers|VAE_Headgear_Fedora|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="VAE_FormalWear"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
+	<!-- doctor scrubs, lab coat, surgical mask: sterile attire -> work attire -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VAE_Apparel_DoctorScrubs|VAE_Apparel_LabCoat|VAE_Headgear_SurgicalMask|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="VAE_SterileAttire"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></Operation>
+	<!-- crossbow, arbalest: greatbows -> crossbows -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VWE_Bow_Crossbow|VFEM2_Arbalest|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="Greatbow"]</xpath><value><researchPrerequisite>URT_Crossbows</researchPrerequisite></value><success>Always</success></Operation>
+	<!-- flamethrower, trench gun: trench warfare -> gunsmithing; razor wire: trench warfare -> machining -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VWE_Gun_Flamethrower|VWE_TrenchGun|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="VWE_TrenchWarfare"]</xpath><value><researchPrerequisite>Gunsmithing</researchPrerequisite></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[string(defName)="VFES_BarbedWire"]/researchPrerequisites/li[.="VWE_TrenchWarfare"]</xpath><value><li>Machining</li></value><success>Always</success></Operation>
+	<!-- leather armor, leather helmet: smithing -&gt; leather tanning; heavy leather armor and helmet: plate armor and leather tanning (needs Vanilla Apparel Expanded) -->
 	<Operation Class="PatchOperationFindMod">
-		<mods><li>Vanilla Quests Expanded - Drone Factory</li></mods>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="Apparel_PackHunter"]/recipeMaker/researchPrerequisite[.="HunterDrones"]</xpath><value><researchPrerequisite>VQE_Dronetech</researchPrerequisite></value><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="HunterDroneTrap"]/researchPrerequisites/li[.="HunterDrones"]</xpath><value><li>VQE_Dronetech</li></value><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="HunterDrones"]</xpath><success>Always</success></li></operations></match>
+		<mods><li>Vanilla Apparel Expanded</li></mods>
+		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VFEM2_Apparel_LeatherHelmet|VFEM2_Apparel_LeatherArmor|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="Smithing"]</xpath><value><researchPrerequisite>VAE_LeatherTanning</researchPrerequisite></value><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ThingDef[contains("|VFEM2_Apparel_HeavyLeatherArmor|VFEM2_Apparel_HeavyLeatherHelmet|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="PlateArmor"]</xpath><success>Always</success></li><li Class="PatchOperationAdd"><xpath>Defs/ThingDef[contains("|VFEM2_Apparel_HeavyLeatherArmor|VFEM2_Apparel_HeavyLeatherHelmet|",concat("|",defName,"|"))]/recipeMaker</xpath><value><researchPrerequisites><li>PlateArmor</li><li>VAE_LeatherTanning</li></researchPrerequisites></value><success>Always</success></li></operations></match>
 	</Operation>
 
-	<!-- ===== 2. Research projects: names, costs, descriptions, prerequisites ===== -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Bow</li></prerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]/label</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><label>greatbows</label></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]/description</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><description>Craft long-range war bows: greatbows, longbows and warbows.</description></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]/label</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]</xpath><value><label>advanced clothing</label></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]/baseCost</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]</xpath><value><baseCost>2000</baseCost></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]/description</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]</xpath><value><description>Tailor everyday modern clothing: casual wear, formal wear, work attire and sterile medical clothing.</description></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_MilitaryClothing"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_MilitaryClothing"]</xpath><value><prerequisites Inherit="False"><li>VAE_WorkAttire</li></prerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_MilitaryClothing"]/description</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_MilitaryClothing"]</xpath><value><description>Craft weatherproof military outfits for your soldiers, including ghillie camouflage.</description></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VPE_EltexGear"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VPE_EltexGear"]</xpath><value><prerequisites Inherit="False"><li>NobleApparel</li></prerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VPE_EltexGear"]/description</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VPE_EltexGear"]</xpath><value><description>Tailor and craft eltex apparel and weapons that improve the psychic focus of your psycasters.</description></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Wine"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Wine"]</xpath><value><prerequisites Inherit="False"><li>Brewing</li></prerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GeothermalPower"]/label</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GeothermalPower"]</xpath><value><label>geothermal power</label></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VQE_Dronetech"]/description</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VQE_Dronetech"]</xpath><value><description>Unlocks the ability to construct specialized work drones, hunter drone packs and traps, and the infrastructure to keep them operational.</description></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]</xpath><value><prerequisites Inherit="False"><li>Electricity</li><li MayRequire="vanillaquestsexpanded.dronefactory">VQE_Dronetech</li></prerequisites></value><success>Always</success></Operation>
-	<!-- Basic mechtech: Electricity is already required through Machining and Dronetech, so drop the extra line (only when Drone Factory provides Dronetech) -->
-	<Operation Class="PatchOperationFindMod">
-		<mods><li>Vanilla Quests Expanded - Drone Factory</li></mods>
-		<match Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]/prerequisites/li[.="Electricity"]</xpath><success>Always</success></match>
-	</Operation>
-	<!-- Marine armor: its hidden Complex clothing requirement is already covered by Recon armor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PoweredArmor"]/hiddenPrerequisites/li[.="ComplexClothing"]</xpath><success>Always</success></Operation>
-	<!-- Gunsmithing: Matchlocks is listed twice by two different mods; keep one -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Gunsmithing"]/prerequisites/li[.="VFEM2_Matchlocks"][2]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_RemoteDemolition"]/label</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFED_RemoteDemolition"]</xpath><value><label>imperial war solutions I</label></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialWarSolutions"]/label</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialWarSolutions"]</xpath><value><label>imperial war solutions II</label></value><success>Always</success></Operation>
+	<!-- ===== Research projects: names, costs, descriptions and requirements ===== -->
+	<!-- greatbow: label, description -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="Greatbow"]/label</xpath><value><label>greatbows</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="Greatbow"]/description</xpath><value><description>Craft long-range war bows: greatbows, longbows and warbows.</description></value><success>Always</success></Operation>
+	<!-- work attire: label, baseCost, description -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VAE_WorkAttire"]/label</xpath><value><label>advanced clothing</label></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VAE_WorkAttire"]/baseCost</xpath><value><baseCost>2000</baseCost></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VAE_WorkAttire"]/description</xpath><value><description>Tailor everyday modern clothing: casual wear, formal wear, work attire and sterile medical clothing.</description></value><success>Always</success></Operation>
+	<!-- military clothing: prerequisites, description -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VAE_MilitaryClothing"]/prerequisites</xpath><value><prerequisites Inherit="False"><li>VAE_WorkAttire</li></prerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VAE_MilitaryClothing"]/description</xpath><value><description>Craft weatherproof military outfits for your soldiers, including ghillie camouflage.</description></value><success>Always</success></Operation>
+	<!-- eltex gear: prerequisites, description -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VPE_EltexGear"]/prerequisites</xpath><value><prerequisites Inherit="False"><li>NobleApparel</li></prerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VPE_EltexGear"]/description</xpath><value><description>Tailor and craft eltex apparel and weapons that improve the psychic focus of your psycasters.</description></value><success>Always</success></Operation>
+	<!-- Geothermal generator: label -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="GeothermalPower"]/label</xpath><value><label>geothermal power</label></value><success>Always</success></Operation>
+	<!-- dronetech: description -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VQE_Dronetech"]/description</xpath><value><description>Unlocks the ability to construct specialized work drones, hunter drone packs and traps, and the infrastructure to keep them operational.</description></value><success>Always</success></Operation>
+	<!-- imperial war solutions: label -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VFED_RemoteDemolition"]/label</xpath><value><label>imperial war solutions I</label></value><success>Always</success></Operation>
+	<!-- imperial war solutions: label -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VFED_ImperialWarSolutions"]/label</xpath><value><label>imperial war solutions II</label></value><success>Always</success></Operation>
+	<!-- culture: prerequisites -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/VFETribals.TribalResearchProjectDef[string(defName)="VFET_Culture"]/prerequisites</xpath><value><prerequisites Inherit="False"><li>VFET_Furniture</li></prerequisites></value><success>Always</success></Operation>
+	<!-- recurve bow, wine, basic furniture, smithing, beer brewing, drug production, complex clothing, stonecutting, pemmican, harp, culture: fields they may not have, so clear them first -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[contains("|RecurveBow|VFEM2_Wine|MF_BasicFurniture|Smithing|Brewing|DrugProduction|ComplexClothing|",concat("|",defName,"|"))]/prerequisites</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[contains("|Stonecutting|Pemmican|Harp|",concat("|",defName,"|"))]/hiddenPrerequisites</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[string(defName)="VFET_Culture"]/hiddenPrerequisites</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="RecurveBow"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Bow</li></prerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="VFEM2_Wine"]</xpath><value><prerequisites Inherit="False"><li>Brewing</li></prerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="MF_BasicFurniture"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Furniture</li></prerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="Smithing"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Weapons</li></prerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="Brewing"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Cultivation</li></prerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="DrugProduction"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Medicine</li></prerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="ComplexClothing"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Tribalwear</li></prerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="Stonecutting"]</xpath><value><hiddenPrerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Mining</li></hiddenPrerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="Pemmican"]</xpath><value><hiddenPrerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Hunting</li></hiddenPrerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="Harp"]</xpath><value><hiddenPrerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Culture</li></hiddenPrerequisites></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[string(defName)="VFET_Culture"]</xpath><value><hiddenPrerequisites Inherit="False"><li>VFET_Medicine</li><li>VFET_Tribalwear</li><li>VFET_AnimalHandling</li><li>VFET_Bow</li></hiddenPrerequisites></value><success>Always</success></Operation>
+	<!-- marine armor: its hidden complex clothing requirement already comes through recon armor -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[string(defName)="PoweredArmor"]/hiddenPrerequisites/li[.="ComplexClothing"]</xpath><success>Always</success></Operation>
+	<!-- gunsmithing: two mods each add matchlocks; keep one -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[string(defName)="Gunsmithing"]/prerequisites/li[.="VFEM2_Matchlocks"][2]</xpath><success>Always</success></Operation>
 
-	<!-- ===== 3. Delete the six projects that no longer unlock anything ===== -->
-	<!-- farming techniques -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_FarmingTechniques"]</xpath><success>Always</success></Operation>
-	<!-- caster gear -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VPE_CasterGear"]</xpath><success>Always</success></Operation>
-	<!-- casual wear -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_CasualWear"]</xpath><success>Always</success></Operation>
-	<!-- formal wear -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_FormalWear"]</xpath><success>Always</success></Operation>
-	<!-- sterile attire -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_SterileAttire"]</xpath><success>Always</success></Operation>
-	<!-- military camouflage -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_MlitaryCamouflage"]</xpath><success>Always</success></Operation>
-
-	<!-- ===== 3b. Furniture chain: Construction &gt; Furniture &gt; Basic furniture &gt; Complex furniture ===== -->
-	<!-- fueled stove and butcher table (from Construction) and fur bed (from Complex furniture) move to Basic furniture; only when Vanilla Furniture Expanded is active -->
+	<!-- ===== Changes that need a specific mod ===== -->
+	<!-- fueled stove, butcher table (from construction) and fur bed, double fur bed (from complex furniture) -&gt; basic furniture -->
 	<Operation Class="PatchOperationFindMod">
 		<mods><li>Vanilla Furniture Expanded</li></mods>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="FueledStove"]/researchPrerequisites/li[.="VFET_Construction"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="TableButcher"]/researchPrerequisites/li[.="VFET_Construction"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFEM2_FurBed"]/researchPrerequisites/li[.="ComplexFurniture"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[defName="VFEM2_DoubleFurBed"]/researchPrerequisites/li[.="ComplexFurniture"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li></operations></match>
+		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|FueledStove|TableButcher|",concat("|",defName,"|"))]/researchPrerequisites/li[.="VFET_Construction"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VFEM2_FurBed|VFEM2_DoubleFurBed|",concat("|",defName,"|"))]/researchPrerequisites/li[.="ComplexFurniture"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li></operations></match>
 	</Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MF_BasicFurniture"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MF_BasicFurniture"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Furniture</li></prerequisites></value><success>Always</success></Operation>
-
-	<!-- ===== 3d. Basics projects lead into the early tree ===== -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Stonecutting"]/hiddenPrerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Stonecutting"]</xpath><value><hiddenPrerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Mining</li></hiddenPrerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Smithing"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Smithing"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Weapons</li></prerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Brewing"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Brewing"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Cultivation</li></prerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Pemmican"]/hiddenPrerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Pemmican"]</xpath><value><hiddenPrerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Hunting</li></hiddenPrerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="DrugProduction"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="DrugProduction"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Medicine</li></prerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Harp"]/hiddenPrerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Harp"]</xpath><value><hiddenPrerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Culture</li></hiddenPrerequisites></value><success>Always</success></Operation>
-
-	<!-- ===== 3e. Culture: one visible line from Furniture; Medicine, Tribalwear, Animal handling and Bow stay required but are not drawn ===== -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Culture"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Culture"]</xpath><value><prerequisites Inherit="False"><li>VFET_Furniture</li></prerequisites></value><success>Always</success></Operation>
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Culture"]/hiddenPrerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Culture"]</xpath><value><hiddenPrerequisites Inherit="False"><li>VFET_Medicine</li><li>VFET_Tribalwear</li><li>VFET_AnimalHandling</li><li>VFET_Bow</li></hiddenPrerequisites></value><success>Always</success></Operation>
-
-	<!-- ===== 3c. Tribalwear &gt; Complex clothing ===== -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ComplexClothing"]/prerequisites</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ComplexClothing"]</xpath><value><prerequisites Inherit="False"><li MayRequire="oskarpotocki.vfe.tribals">VFET_Tribalwear</li></prerequisites></value><success>Always</success></Operation>
-
-	<!-- ===== 3f. Hidden lines: still required, but the line is not drawn (secondary requirements that cluttered the tree) ===== -->
-	<!-- drug production -> medicine production -->
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/ResearchProjectDef[defName="MedicineProduction"]/prerequisites/li[.="DrugProduction"]</xpath>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MedicineProduction"]/prerequisites/li[.="DrugProduction"]</xpath></li><li Class="PatchOperationConditional"><xpath>Defs/ResearchProjectDef[defName="MedicineProduction"]/hiddenPrerequisites</xpath><match Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MedicineProduction"]/hiddenPrerequisites</xpath><value><li>DrugProduction</li></value></match><nomatch Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MedicineProduction"]</xpath><value><hiddenPrerequisites><li>DrugProduction</li></hiddenPrerequisites></value></nomatch></li></operations></match>
+	<!-- hunter drone merges into dronetech (hunter pack and trap move there); basic mechtech needs dronetech, which already needs electricity -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Vanilla Quests Expanded - Drone Factory</li></mods>
+		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[string(defName)="Apparel_PackHunter"]/recipeMaker/researchPrerequisite[.="HunterDrones"]</xpath><value><researchPrerequisite>VQE_Dronetech</researchPrerequisite></value><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[string(defName)="HunterDroneTrap"]/researchPrerequisites/li[.="HunterDrones"]</xpath><value><li>VQE_Dronetech</li></value><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[string(defName)="HunterDrones"]</xpath><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="BasicMechtech"]/prerequisites</xpath><value><prerequisites Inherit="False"><li>VQE_Dronetech</li></prerequisites></value><success>Always</success></li></operations></match>
 	</Operation>
-	<!-- smithing -> harpsichord -->
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/ResearchProjectDef[defName="Harpsichord"]/prerequisites/li[.="Smithing"]</xpath>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Harpsichord"]/prerequisites/li[.="Smithing"]</xpath></li><li Class="PatchOperationConditional"><xpath>Defs/ResearchProjectDef[defName="Harpsichord"]/hiddenPrerequisites</xpath><match Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Harpsichord"]/hiddenPrerequisites</xpath><value><li>Smithing</li></value></match><nomatch Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Harpsichord"]</xpath><value><hiddenPrerequisites><li>Smithing</li></hiddenPrerequisites></value></nomatch></li></operations></match>
-	</Operation>
-	<!-- modern furniture -> spacer furniture -->
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/ResearchProjectDef[defName="SpacerFurniture"]/prerequisites/li[.="MF_ModernFurniture"]</xpath>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SpacerFurniture"]/prerequisites/li[.="MF_ModernFurniture"]</xpath></li><li Class="PatchOperationConditional"><xpath>Defs/ResearchProjectDef[defName="SpacerFurniture"]/hiddenPrerequisites</xpath><match Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SpacerFurniture"]/hiddenPrerequisites</xpath><value><li>MF_ModernFurniture</li></value></match><nomatch Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SpacerFurniture"]</xpath><value><hiddenPrerequisites><li>MF_ModernFurniture</li></hiddenPrerequisites></value></nomatch></li></operations></match>
-	</Operation>
-	<!-- shields -> siegebreaker armor -->
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/ResearchProjectDef[defName="VAE_SiegebreakerArmor"]/prerequisites/li[.="ShieldBelt"]</xpath>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_SiegebreakerArmor"]/prerequisites/li[.="ShieldBelt"]</xpath></li><li Class="PatchOperationConditional"><xpath>Defs/ResearchProjectDef[defName="VAE_SiegebreakerArmor"]/hiddenPrerequisites</xpath><match Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_SiegebreakerArmor"]/hiddenPrerequisites</xpath><value><li>ShieldBelt</li></value></match><nomatch Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_SiegebreakerArmor"]</xpath><value><hiddenPrerequisites><li>ShieldBelt</li></hiddenPrerequisites></value></nomatch></li></operations></match>
-	</Operation>
-	<!-- shields -> repulsor technology -->
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/ResearchProjectDef[defName="VFES_RepulsorTechnology"]/prerequisites/li[.="ShieldBelt"]</xpath>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_RepulsorTechnology"]/prerequisites/li[.="ShieldBelt"]</xpath></li><li Class="PatchOperationConditional"><xpath>Defs/ResearchProjectDef[defName="VFES_RepulsorTechnology"]/hiddenPrerequisites</xpath><match Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_RepulsorTechnology"]/hiddenPrerequisites</xpath><value><li>ShieldBelt</li></value></match><nomatch Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_RepulsorTechnology"]</xpath><value><hiddenPrerequisites><li>ShieldBelt</li></hiddenPrerequisites></value></nomatch></li></operations></match>
-	</Operation>
-	<!-- Hydroponics basin -> artificial ecosystems -->
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/ResearchProjectDef[defName="VFE_Res_AdvancedHydroponics"]/prerequisites/li[.="Hydroponics"]</xpath>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_AdvancedHydroponics"]/prerequisites/li[.="Hydroponics"]</xpath></li><li Class="PatchOperationConditional"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_AdvancedHydroponics"]/hiddenPrerequisites</xpath><match Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_AdvancedHydroponics"]/hiddenPrerequisites</xpath><value><li>Hydroponics</li></value></match><nomatch Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_AdvancedHydroponics"]</xpath><value><hiddenPrerequisites><li>Hydroponics</li></hiddenPrerequisites></value></nomatch></li></operations></match>
-	</Operation>
-	<!-- heavy weapons -> laser targeting systems -->
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/ResearchProjectDef[defName="VWE_LaserTargetingSystems"]/prerequisites/li[.="VWE_HeavyWeapons"]</xpath>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VWE_LaserTargetingSystems"]/prerequisites/li[.="VWE_HeavyWeapons"]</xpath></li><li Class="PatchOperationConditional"><xpath>Defs/ResearchProjectDef[defName="VWE_LaserTargetingSystems"]/hiddenPrerequisites</xpath><match Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VWE_LaserTargetingSystems"]/hiddenPrerequisites</xpath><value><li>VWE_HeavyWeapons</li></value></match><nomatch Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VWE_LaserTargetingSystems"]</xpath><value><hiddenPrerequisites><li>VWE_HeavyWeapons</li></hiddenPrerequisites></value></nomatch></li></operations></match>
+	<!-- scarecrow: farming techniques -&gt; cultivation; farming techniques is then empty and removed -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Vanilla Factions Expanded - Tribals</li></mods>
+		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[string(defName)="VFE_Scarecrow"]/researchPrerequisites/li[.="VFE_Res_FarmingTechniques"]</xpath><value><li>VFET_Cultivation</li></value><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[string(defName)="VFE_Res_FarmingTechniques"]</xpath><success>Always</success></li></operations></match>
 	</Operation>
 
-	<!-- ===== 4. Every project into the Main tab at its new position (clear old values, then set new ones) ===== -->
-	<!-- fire -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Fire"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Fire"]</xpath><value><tab>Main</tab><researchViewX>0.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- animal handling -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_AnimalHandling"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_AnimalHandling"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- agriculture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Agriculture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Agriculture"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- mining -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Mining"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Mining"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- hunting -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Hunting"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Hunting"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- tribalwear -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Tribalwear"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Tribalwear"]</xpath><value><tab>Main</tab><researchViewX>1.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- cultivation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Cultivation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Cultivation"]</xpath><value><tab>Main</tab><researchViewX>2.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- construction -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Construction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Construction"]</xpath><value><tab>Main</tab><researchViewX>2.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- weapons -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Weapons"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Weapons"]</xpath><value><tab>Main</tab><researchViewX>2.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- medicine -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Medicine"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Medicine"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- furniture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Furniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Furniture"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- bow -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Bow"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Bow"]</xpath><value><tab>Main</tab><researchViewX>3.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- culture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Culture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[defName="VFET_Culture"]</xpath><value><tab>Main</tab><researchViewX>4.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- tree sowing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="TreeSowing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="TreeSowing"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>0.60</researchViewY></value><success>Always</success></Operation>
-	<!-- pemmican -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Pemmican"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Pemmican"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
-	<!-- berry cultivation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RG_BerryCultivation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RG_BerryCultivation"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
-	<!-- mushroom cultivation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RG_MushroomCultivation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RG_MushroomCultivation"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
-	<!-- stonecutting -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Stonecutting"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Stonecutting"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- basic furniture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MF_BasicFurniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MF_BasicFurniture"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- heavy bridges -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="HeavyBridges"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="HeavyBridges"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- recurve bow -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RecurveBow"]</xpath><value><tab>Main</tab><researchViewX>5.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- cocoa -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Cocoa"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Cocoa"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>0.60</researchViewY></value><success>Always</success></Operation>
-	<!-- beekeeping -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Beekeeping"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Beekeeping"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
-	<!-- fishing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Fishing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Fishing"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
-	<!-- devilstrand -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Devilstrand"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Devilstrand"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
-	<!-- passive cooler -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PassiveCooler"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PassiveCooler"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- greatbow -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath><value><tab>Main</tab><researchViewX>6.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- drug production -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="DrugProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="DrugProduction"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- beer brewing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Brewing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Brewing"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- carpet-making -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="CarpetMaking"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CarpetMaking"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- smithing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Smithing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Smithing"]</xpath><value><tab>Main</tab><researchViewX>7.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- psychite refining -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PsychiteRefining"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PsychiteRefining"]</xpath><value><tab>Main</tab><researchViewX>8.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- Penoxycyline -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PenoxycylineProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PenoxycylineProduction"]</xpath><value><tab>Main</tab><researchViewX>8.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- long blades -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="LongBlades"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="LongBlades"]</xpath><value><tab>Main</tab><researchViewX>8.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- Wake-up -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="WakeUpProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="WakeUpProduction"]</xpath><value><tab>Main</tab><researchViewX>9.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- Go-juice -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GoJuiceProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GoJuiceProduction"]</xpath><value><tab>Main</tab><researchViewX>9.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- Psychite tea -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PsychoidBrewing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PsychoidBrewing"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- wine -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Wine"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Wine"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- medieval architecture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_MedievalArchitecture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_MedievalArchitecture"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- complex furniture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ComplexFurniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ComplexFurniture"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- siege equipment -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_SiegeEquipment"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_SiegeEquipment"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- complex clothing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ComplexClothing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ComplexClothing"]</xpath><value><tab>Main</tab><researchViewX>10.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- alchemy -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Alchemy"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Alchemy"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- heraldry -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Heraldry"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Heraldry"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- harp -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Harp"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Harp"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- leather tanning -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_LeatherTanning"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_LeatherTanning"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- plate armor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PlateArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PlateArmor"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- noble apparel -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="NobleApparel"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NobleApparel"]</xpath><value><tab>Main</tab><researchViewX>11.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- harpsichord -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Harpsichord"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Harpsichord"]</xpath><value><tab>Main</tab><researchViewX>12.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- artisan furniture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MF_RoyalFurniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MF_RoyalFurniture"]</xpath><value><tab>Main</tab><researchViewX>12.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- royal apparel -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RoyalApparel"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RoyalApparel"]</xpath><value><tab>Main</tab><researchViewX>12.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- noble decorations -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEE_NobleDecorations"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEE_NobleDecorations"]</xpath><value><tab>Main</tab><researchViewX>13.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- piano -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Piano"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Piano"]</xpath><value><tab>Main</tab><researchViewX>13.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- modern furniture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MF_ModernFurniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MF_ModernFurniture"]</xpath><value><tab>Main</tab><researchViewX>13.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- complex workshops -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_ComplexWorkshops"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_ComplexWorkshops"]</xpath><value><tab>Main</tab><researchViewX>13.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- matchlocks -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Matchlocks"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEM2_Matchlocks"]</xpath><value><tab>Main</tab><researchViewX>13.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- work attire -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_WorkAttire"]</xpath><value><tab>Main</tab><researchViewX>13.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- stellic throne -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEE_StellicThrone"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEE_StellicThrone"]</xpath><value><tab>Main</tab><researchViewX>14.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- organ -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEE_PipeOrgans"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEE_PipeOrgans"]</xpath><value><tab>Main</tab><researchViewX>14.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- electricity -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Electricity"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Electricity"]</xpath><value><tab>Main</tab><researchViewX>15.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- nutrient paste -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="NutrientPaste"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NutrientPaste"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- Hydroponics basin -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Hydroponics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Hydroponics"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- Autodoors -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Autodoors"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Autodoors"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- waste disposal -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MF_WasteDisposal"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MF_WasteDisposal"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- firefoam -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Firefoam"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Firefoam"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- machining -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Machining"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Machining"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- IEDs -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="IEDs"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="IEDs"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- military clothing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_MilitaryClothing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_MilitaryClothing"]</xpath><value><tab>Main</tab><researchViewX>16.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- packaged survival meal -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PackagedSurvivalMeal"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PackagedSurvivalMeal"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- fertility procedures -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="FertilityProcedures"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FertilityProcedures"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
-	<!-- watermill generator -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="WatermillGenerator"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="WatermillGenerator"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- solar panel -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SolarPanels"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SolarPanels"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- battery -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Batteries"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Batteries"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- tox gas -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ToxGas"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ToxGas"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- sterile materials -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SterileMaterials"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SterileMaterials"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- prosthetics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Prosthetics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Prosthetics"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- Smokepop pack -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SmokepopBelt"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SmokepopBelt"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- imperial war solutions -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_RemoteDemolition"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFED_RemoteDemolition"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- hazard protection -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_HazardProtection"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_HazardProtection"]</xpath><value><tab>Main</tab><researchViewX>17.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- deathrest -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Deathrest"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Deathrest"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- security door -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SecurityDoor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SecurityDoor"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- advanced lights -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ColoredLights"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ColoredLights"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- basic electronics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="TubeTelevision"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="TubeTelevision"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- air conditioning -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="AirConditioning"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="AirConditioning"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- gunsmithing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Gunsmithing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Gunsmithing"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- dronetech -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VQE_Dronetech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VQE_Dronetech"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- flak armor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="FlakArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FlakArmor"]</xpath><value><tab>Main</tab><researchViewX>18.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- xenogenetics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Xenogermination"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Xenogermination"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- Sprinkler -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_Sprinkler"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_Sprinkler"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- toxifier generator -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ToxifierGenerator"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ToxifierGenerator"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- industrial generators -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_IndustrialGenerators"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_IndustrialGenerators"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- biofuel refining -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BiofuelRefining"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BiofuelRefining"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- HVAC -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VTE_HVAC"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VTE_HVAC"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- blowback operation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BlowbackOperation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BlowbackOperation"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- mortars -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Mortars"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Mortars"]</xpath><value><tab>Main</tab><researchViewX>19.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- tidal generator -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_TidalPower"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_TidalPower"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- Geothermal generator -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GeothermalPower"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GeothermalPower"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- advanced battery -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_AdvancedBatteries"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_AdvancedBatteries"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- neutroamine logistics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VREA_NeutroamineLogistics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VREA_NeutroamineLogistics"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- gas operation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GasOperation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GasOperation"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- gun turrets -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GunTurrets"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GunTurrets"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- trench warfare -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VWE_TrenchWarfare"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VWE_TrenchWarfare"]</xpath><value><tab>Main</tab><researchViewX>20.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- foam turret -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="FoamTurret"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FoamTurret"]</xpath><value><tab>Main</tab><researchViewX>21.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- concealed defenses -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_ConcealedDefenses"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_ConcealedDefenses"]</xpath><value><tab>Main</tab><researchViewX>21.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- microelectronics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MicroelectronicsBasics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MicroelectronicsBasics"]</xpath><value><tab>Main</tab><researchViewX>22.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- medicine production -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MedicineProduction"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MedicineProduction"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- moisture pump -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MoisturePump"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MoisturePump"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- transport pod -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="TransportPod"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="TransportPod"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- long-range mineral scanner -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="LongRangeMineralScanner"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="LongRangeMineralScanner"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- Deep drill -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="DeepDrilling"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="DeepDrilling"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- shields -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShieldBelt"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShieldBelt"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- turret pack -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="TurretPack"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="TurretPack"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- precision rifling -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PrecisionRifling"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PrecisionRifling"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- multibarrel weapons -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MultibarrelWeapons"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MultibarrelWeapons"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- basic mechtech -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BasicMechtech"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- jump packs -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="JumpPack"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="JumpPack"]</xpath><value><tab>Main</tab><researchViewX>23.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- hospital bed -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="HospitalBed"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="HospitalBed"]</xpath><value><tab>Main</tab><researchViewX>24.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- brain wiring -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BrainWiring"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BrainWiring"]</xpath><value><tab>Main</tab><researchViewX>24.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- ground-penetrating scanner -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GroundPenetratingScanner"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GroundPenetratingScanner"]</xpath><value><tab>Main</tab><researchViewX>24.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- autocannon turret -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="HeavyTurrets"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="HeavyTurrets"]</xpath><value><tab>Main</tab><researchViewX>24.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- compact weaponry -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="CompactWeaponry"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CompactWeaponry"]</xpath><value><tab>Main</tab><researchViewX>24.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- specialized limbs -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SpecializedLimbs"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SpecializedLimbs"]</xpath><value><tab>Main</tab><researchViewX>24.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- growth vat -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GrowthVats"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GrowthVats"]</xpath><value><tab>Main</tab><researchViewX>25.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- neural supercharger -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="NeuralSupercharger"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NeuralSupercharger"]</xpath><value><tab>Main</tab><researchViewX>25.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- biosculpter pod -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Biosculpting"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Biosculpting"]</xpath><value><tab>Main</tab><researchViewX>25.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
-	<!-- nuclear reactor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_NuclearPower"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_NuclearPower"]</xpath><value><tab>Main</tab><researchViewX>25.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- advanced power sources -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_AdvancedPowerSources"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_AdvancedPowerSources"]</xpath><value><tab>Main</tab><researchViewX>25.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- heavy weapons -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VWE_HeavyWeapons"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VWE_HeavyWeapons"]</xpath><value><tab>Main</tab><researchViewX>25.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- poison synthesis -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VenomSynthesis"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VenomSynthesis"]</xpath><value><tab>Main</tab><researchViewX>25.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- gene processor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="GeneProcessor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="GeneProcessor"]</xpath><value><tab>Main</tab><researchViewX>26.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- complex electronics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="FlatscreenTelevision"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FlatscreenTelevision"]</xpath><value><tab>Main</tab><researchViewX>26.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- standard mechtech -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="StandardMechtech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="StandardMechtech"]</xpath><value><tab>Main</tab><researchViewX>26.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- eltex gear -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VPE_EltexGear"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VPE_EltexGear"]</xpath><value><tab>Main</tab><researchViewX>26.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- multi-analyzer -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MultiAnalyzer"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MultiAnalyzer"]</xpath><value><tab>Main</tab><researchViewX>27.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- vitals monitor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VitalsMonitor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VitalsMonitor"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- artificial ecosystems -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_AdvancedHydroponics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_Res_AdvancedHydroponics"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- bioregeneration -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Bioregeneration"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Bioregeneration"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
-	<!-- passenger shuttle -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Shuttles"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Shuttles"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- cryptosleep casket -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Cryptosleep"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Cryptosleep"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- spacer electronics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SpacerElectronics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SpacerElectronics"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- uranium slug turret -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SniperTurret"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SniperTurret"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- rocketswarm launcher -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="RocketswarmLauncher"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="RocketswarmLauncher"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- high mechtech -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="HighMechtech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="HighMechtech"]</xpath><value><tab>Main</tab><researchViewX>28.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- fabrication -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Fabrication"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Fabrication"]</xpath><value><tab>Main</tab><researchViewX>29.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- archogenetics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Archogenetics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Archogenetics"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
-	<!-- circadian influence -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="CircadianInfluence"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CircadianInfluence"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- bionic replacements -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Bionics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Bionics"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
-	<!-- healing factors -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="HealingFactors"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="HealingFactors"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- Manufacturing -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFE_Manufacturing"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFE_Manufacturing"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- spacer furniture -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SpacerFurniture"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SpacerFurniture"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- imperial defenses -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialDefenses"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialDefenses"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- pulse-charged munitions -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ChargedShot"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ChargedShot"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- gunlink -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="Gunlink"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="Gunlink"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
-	<!-- recon armor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ReconArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ReconArmor"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- trooper armor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_TrooperArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_TrooperArmor"]</xpath><value><tab>Main</tab><researchViewX>30.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- skin hardening -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="SkinHardening"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="SkinHardening"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- neural computation -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="NeuralComputation"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="NeuralComputation"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
-	<!-- artificial metabolism -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ArtificialMetabolism"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ArtificialMetabolism"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- imperial war solutions -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialWarSolutions"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFED_ImperialWarSolutions"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- railgun -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_Railgun"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_Railgun"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- electromagnetic pulse -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_EMPCannon"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_EMPCannon"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
-	<!-- janissary gear -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFEE_JanissaryGear"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFEE_JanissaryGear"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- marine armor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="PoweredArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="PoweredArmor"]</xpath><value><tab>Main</tab><researchViewX>31.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- molecular analysis -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="MolecularAnalysis"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="MolecularAnalysis"]</xpath><value><tab>Main</tab><researchViewX>32.00</researchViewX><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
-	<!-- toxin filtration -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ToxFiltration"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ToxFiltration"]</xpath><value><tab>Main</tab><researchViewX>32.00</researchViewX><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
-	<!-- flesh shaping -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="FleshShaping"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="FleshShaping"]</xpath><value><tab>Main</tab><researchViewX>32.00</researchViewX><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
-	<!-- advanced fabrication -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="AdvancedFabrication"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="AdvancedFabrication"]</xpath><value><tab>Main</tab><researchViewX>32.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- laser targeting systems -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VWE_LaserTargetingSystems"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VWE_LaserTargetingSystems"]</xpath><value><tab>Main</tab><researchViewX>32.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- ultra mechtech -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="UltraMechtech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="UltraMechtech"]</xpath><value><tab>Main</tab><researchViewX>32.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- cataphract armor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="CataphractArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="CataphractArmor"]</xpath><value><tab>Main</tab><researchViewX>32.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- wastepack atomizer -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="WastepackAtomizer"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="WastepackAtomizer"]</xpath><value><tab>Main</tab><researchViewX>33.00</researchViewX><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
-	<!-- repulsor technology -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VFES_RepulsorTechnology"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VFES_RepulsorTechnology"]</xpath><value><tab>Main</tab><researchViewX>33.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- beam weapons -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="BeamWeapons"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="BeamWeapons"]</xpath><value><tab>Main</tab><researchViewX>33.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
-	<!-- androidtech -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VREA_AndroidTech"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VREA_AndroidTech"]</xpath><value><tab>Main</tab><researchViewX>33.00</researchViewX><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
-	<!-- siegebreaker armor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="VAE_SiegebreakerArmor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="VAE_SiegebreakerArmor"]</xpath><value><tab>Main</tab><researchViewX>33.00</researchViewX><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
-	<!-- starflight basics -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipBasics"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipBasics"]</xpath><value><tab>Main</tab><researchViewX>34.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- machine persuasion -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipComputerCore"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipComputerCore"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
-	<!-- starship reactor -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipReactor"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipReactor"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
-	<!-- starflight sensors -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipSensorCluster"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipSensorCluster"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
-	<!-- Johnson-Tanaka drive -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipEngine"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipEngine"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
-	<!-- vacuum cryptosleep casket -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[defName="ShipCryptosleep"]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[defName="ShipCryptosleep"]</xpath><value><tab>Main</tab><researchViewX>35.00</researchViewX><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
+	<!-- ===== Remove projects that no longer unlock anything ===== -->
+	<!-- caster gear, casual wear, formal wear, sterile attire, military camouflage -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[contains("|VPE_CasterGear|VAE_CasualWear|VAE_FormalWear|VAE_SterileAttire|VAE_MlitaryCamouflage|",concat("|",defName,"|"))]</xpath><success>Always</success></Operation>
 
-	<!-- ===== 5. Remove the emptied Basics, ReGrowth and Vanilla Expanded tabs, only if no project still uses them ===== -->
+	<!-- ===== Hidden lines: still required, but the line is not drawn ===== -->
+	<!-- drug production -&gt; medicine production; smithing -&gt; harpsichord; modern furniture -&gt; spacer furniture; shields -&gt; siegebreaker armor; shields -&gt; repulsor technology; Hydroponics basin -&gt; artificial ecosystems; heavy weapons -&gt; laser targeting systems -->
+	<!-- 1. give each of these projects a hidden-requirements list if it has none -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|MedicineProduction|Harpsichord|SpacerFurniture|VAE_SiegebreakerArmor|VFES_RepulsorTechnology|VFE_Res_AdvancedHydroponics|VWE_LaserTargetingSystems|",concat("|",defName,"|"))][not(hiddenPrerequisites)]</xpath><value><hiddenPrerequisites /></value><success>Always</success></Operation>
+	<!-- 2. copy each line there, only where the project really has it -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="MedicineProduction"][prerequisites/li="DrugProduction"]/hiddenPrerequisites</xpath><value><li>DrugProduction</li></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="Harpsichord"][prerequisites/li="Smithing"]/hiddenPrerequisites</xpath><value><li>Smithing</li></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="SpacerFurniture"][prerequisites/li="MF_ModernFurniture"]/hiddenPrerequisites</xpath><value><li>MF_ModernFurniture</li></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|VAE_SiegebreakerArmor|VFES_RepulsorTechnology|",concat("|",defName,"|"))][prerequisites/li="ShieldBelt"]/hiddenPrerequisites</xpath><value><li>ShieldBelt</li></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="VFE_Res_AdvancedHydroponics"][prerequisites/li="Hydroponics"]/hiddenPrerequisites</xpath><value><li>Hydroponics</li></value><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="VWE_LaserTargetingSystems"][prerequisites/li="VWE_HeavyWeapons"]/hiddenPrerequisites</xpath><value><li>VWE_HeavyWeapons</li></value><success>Always</success></Operation>
+	<!-- 3. remove the drawn lines -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[contains("|MedicineProduction|Harpsichord|SpacerFurniture|VAE_SiegebreakerArmor|VFES_RepulsorTechnology|VFE_Res_AdvancedHydroponics|VWE_LaserTargetingSystems|",concat("|",defName,"|"))]/prerequisites/li[contains("|MedicineProduction&gt;DrugProduction|Harpsichord&gt;Smithing|SpacerFurniture&gt;MF_ModernFurniture|VAE_SiegebreakerArmor&gt;ShieldBelt|VFES_RepulsorTechnology&gt;ShieldBelt|VFE_Res_AdvancedHydroponics&gt;Hydroponics|VWE_LaserTargetingSystems&gt;VWE_HeavyWeapons|",concat("|",../../defName,"&gt;",.,"|"))]</xpath><success>Always</success></Operation>
+
+	<!-- ===== Positions: every project in the Main tab, grouped by column and by row ===== -->
+	<!-- 13 Basics projects: clear the old tab and position, then put them in Main -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/VFETribals.TribalResearchProjectDef[contains("|VFET_Fire|VFET_AnimalHandling|VFET_Agriculture|VFET_Mining|VFET_Hunting|VFET_Tribalwear|VFET_Cultivation|VFET_Construction|VFET_Weapons|VFET_Medicine|VFET_Furniture|VFET_Bow|VFET_Culture|",concat("|",defName,"|"))]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[contains("|VFET_Fire|VFET_AnimalHandling|VFET_Agriculture|VFET_Mining|VFET_Hunting|VFET_Tribalwear|VFET_Cultivation|VFET_Construction|VFET_Weapons|VFET_Medicine|VFET_Furniture|VFET_Bow|VFET_Culture|",concat("|",defName,"|"))]</xpath><value><tab>Main</tab></value><success>Always</success></Operation>
+	<!-- column 0.00: fire -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[string(defName)="VFET_Fire"]</xpath><value><researchViewX>0.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 1.00: animal handling, agriculture, mining, hunting, tribalwear -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[contains("|VFET_AnimalHandling|VFET_Agriculture|VFET_Mining|VFET_Hunting|VFET_Tribalwear|",concat("|",defName,"|"))]</xpath><value><researchViewX>1.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 2.00: cultivation, construction, weapons -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[contains("|VFET_Cultivation|VFET_Construction|VFET_Weapons|",concat("|",defName,"|"))]</xpath><value><researchViewX>2.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 3.00: medicine, furniture, bow -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[contains("|VFET_Medicine|VFET_Furniture|VFET_Bow|",concat("|",defName,"|"))]</xpath><value><researchViewX>3.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 4.00: culture -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[string(defName)="VFET_Culture"]</xpath><value><researchViewX>4.00</researchViewX></value><success>Always</success></Operation>
+	<!-- row 0.30: animal handling, medicine -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[contains("|VFET_AnimalHandling|VFET_Medicine|",concat("|",defName,"|"))]</xpath><value><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
+	<!-- row 2.10: agriculture, cultivation -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[contains("|VFET_Agriculture|VFET_Cultivation|",concat("|",defName,"|"))]</xpath><value><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
+	<!-- row 3.90: fire, mining, construction, furniture, culture -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[contains("|VFET_Fire|VFET_Mining|VFET_Construction|VFET_Furniture|VFET_Culture|",concat("|",defName,"|"))]</xpath><value><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
+	<!-- row 5.70: hunting, weapons -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[contains("|VFET_Hunting|VFET_Weapons|",concat("|",defName,"|"))]</xpath><value><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
+	<!-- row 6.30: bow -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[string(defName)="VFET_Bow"]</xpath><value><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
+	<!-- row 7.50: tribalwear -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/VFETribals.TribalResearchProjectDef[string(defName)="VFET_Tribalwear"]</xpath><value><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
+	<!-- 168 projects: clear the old tab and position, then put them in Main -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[contains("|TreeSowing|Pemmican|RG_BerryCultivation|RG_MushroomCultivation|Stonecutting|MF_BasicFurniture|HeavyBridges|RecurveBow|Cocoa|VFEM2_Beekeeping|Fishing|Devilstrand|PassiveCooler|Greatbow|DrugProduction|Brewing|CarpetMaking|Smithing|PsychiteRefining|PenoxycylineProduction|LongBlades|WakeUpProduction|GoJuiceProduction|PsychoidBrewing|VFEM2_Wine|VFEM2_MedievalArchitecture|ComplexFurniture|VFES_SiegeEquipment|ComplexClothing|VFEM2_Alchemy|VFEM2_Heraldry|Harp|VAE_LeatherTanning|PlateArmor|NobleApparel|Harpsichord|MF_RoyalFurniture|RoyalApparel|VFEE_NobleDecorations|Piano|MF_ModernFurniture|VFEM2_ComplexWorkshops|VFEM2_Matchlocks|VAE_WorkAttire|VFEE_StellicThrone|VFEE_PipeOrgans|Electricity|NutrientPaste|Hydroponics|Autodoors|MF_WasteDisposal|Firefoam|Machining|IEDs|VAE_MilitaryClothing|PackagedSurvivalMeal|FertilityProcedures|WatermillGenerator|SolarPanels|Batteries|ToxGas|SterileMaterials|Prosthetics|SmokepopBelt|VFED_RemoteDemolition|VAE_HazardProtection|Deathrest|SecurityDoor|ColoredLights|TubeTelevision|AirConditioning|Gunsmithing|VQE_Dronetech|FlakArmor|Xenogermination|VFE_Res_Sprinkler|ToxifierGenerator|VFE_IndustrialGenerators|BiofuelRefining|VTE_HVAC|BlowbackOperation|Mortars|VFE_TidalPower|GeothermalPower|VFE_AdvancedBatteries|VREA_NeutroamineLogistics|GasOperation|GunTurrets|VWE_TrenchWarfare|FoamTurret|VFES_ConcealedDefenses|MicroelectronicsBasics|MedicineProduction|MoisturePump|TransportPod|LongRangeMineralScanner|DeepDrilling|ShieldBelt|TurretPack|PrecisionRifling|MultibarrelWeapons|BasicMechtech|JumpPack|HospitalBed|BrainWiring|GroundPenetratingScanner|HeavyTurrets|CompactWeaponry|SpecializedLimbs|GrowthVats|NeuralSupercharger|Biosculpting|VFE_NuclearPower|VFE_AdvancedPowerSources|VWE_HeavyWeapons|VenomSynthesis|GeneProcessor|FlatscreenTelevision|StandardMechtech|VPE_EltexGear|MultiAnalyzer|VitalsMonitor|VFE_Res_AdvancedHydroponics|Bioregeneration|Shuttles|Cryptosleep|SpacerElectronics|SniperTurret|RocketswarmLauncher|HighMechtech|Fabrication|Archogenetics|CircadianInfluence|Bionics|HealingFactors|VFE_Manufacturing|SpacerFurniture|VFED_ImperialDefenses|ChargedShot|Gunlink|ReconArmor|VAE_TrooperArmor|SkinHardening|NeuralComputation|ArtificialMetabolism|VFED_ImperialWarSolutions|VFES_Railgun|VFES_EMPCannon|VFEE_JanissaryGear|PoweredArmor|MolecularAnalysis|ToxFiltration|FleshShaping|AdvancedFabrication|VWE_LaserTargetingSystems|UltraMechtech|CataphractArmor|WastepackAtomizer|VFES_RepulsorTechnology|BeamWeapons|VREA_AndroidTech|VAE_SiegebreakerArmor|ShipBasics|ShipComputerCore|ShipReactor|ShipSensorCluster|ShipEngine|ShipCryptosleep|",concat("|",defName,"|"))]/*[self::tab or self::researchViewX or self::researchViewY]</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|TreeSowing|Pemmican|RG_BerryCultivation|RG_MushroomCultivation|Stonecutting|MF_BasicFurniture|HeavyBridges|RecurveBow|Cocoa|VFEM2_Beekeeping|Fishing|Devilstrand|PassiveCooler|Greatbow|DrugProduction|Brewing|CarpetMaking|Smithing|PsychiteRefining|PenoxycylineProduction|LongBlades|WakeUpProduction|GoJuiceProduction|PsychoidBrewing|VFEM2_Wine|VFEM2_MedievalArchitecture|ComplexFurniture|VFES_SiegeEquipment|ComplexClothing|VFEM2_Alchemy|VFEM2_Heraldry|Harp|VAE_LeatherTanning|PlateArmor|NobleApparel|Harpsichord|MF_RoyalFurniture|RoyalApparel|VFEE_NobleDecorations|Piano|MF_ModernFurniture|VFEM2_ComplexWorkshops|VFEM2_Matchlocks|VAE_WorkAttire|VFEE_StellicThrone|VFEE_PipeOrgans|Electricity|NutrientPaste|Hydroponics|Autodoors|MF_WasteDisposal|Firefoam|Machining|IEDs|VAE_MilitaryClothing|PackagedSurvivalMeal|FertilityProcedures|WatermillGenerator|SolarPanels|Batteries|ToxGas|SterileMaterials|Prosthetics|SmokepopBelt|VFED_RemoteDemolition|VAE_HazardProtection|Deathrest|SecurityDoor|ColoredLights|TubeTelevision|AirConditioning|Gunsmithing|VQE_Dronetech|FlakArmor|Xenogermination|VFE_Res_Sprinkler|ToxifierGenerator|VFE_IndustrialGenerators|BiofuelRefining|VTE_HVAC|BlowbackOperation|Mortars|VFE_TidalPower|GeothermalPower|VFE_AdvancedBatteries|VREA_NeutroamineLogistics|GasOperation|GunTurrets|VWE_TrenchWarfare|FoamTurret|VFES_ConcealedDefenses|MicroelectronicsBasics|MedicineProduction|MoisturePump|TransportPod|LongRangeMineralScanner|DeepDrilling|ShieldBelt|TurretPack|PrecisionRifling|MultibarrelWeapons|BasicMechtech|JumpPack|HospitalBed|BrainWiring|GroundPenetratingScanner|HeavyTurrets|CompactWeaponry|SpecializedLimbs|GrowthVats|NeuralSupercharger|Biosculpting|VFE_NuclearPower|VFE_AdvancedPowerSources|VWE_HeavyWeapons|VenomSynthesis|GeneProcessor|FlatscreenTelevision|StandardMechtech|VPE_EltexGear|MultiAnalyzer|VitalsMonitor|VFE_Res_AdvancedHydroponics|Bioregeneration|Shuttles|Cryptosleep|SpacerElectronics|SniperTurret|RocketswarmLauncher|HighMechtech|Fabrication|Archogenetics|CircadianInfluence|Bionics|HealingFactors|VFE_Manufacturing|SpacerFurniture|VFED_ImperialDefenses|ChargedShot|Gunlink|ReconArmor|VAE_TrooperArmor|SkinHardening|NeuralComputation|ArtificialMetabolism|VFED_ImperialWarSolutions|VFES_Railgun|VFES_EMPCannon|VFEE_JanissaryGear|PoweredArmor|MolecularAnalysis|ToxFiltration|FleshShaping|AdvancedFabrication|VWE_LaserTargetingSystems|UltraMechtech|CataphractArmor|WastepackAtomizer|VFES_RepulsorTechnology|BeamWeapons|VREA_AndroidTech|VAE_SiegebreakerArmor|ShipBasics|ShipComputerCore|ShipReactor|ShipSensorCluster|ShipEngine|ShipCryptosleep|",concat("|",defName,"|"))]</xpath><value><tab>Main</tab></value><success>Always</success></Operation>
+	<!-- column 5.00: tree sowing, pemmican, berry cultivation, mushroom cultivation, stonecutting, basic furniture, heavy bridges, recurve bow -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|TreeSowing|Pemmican|RG_BerryCultivation|RG_MushroomCultivation|Stonecutting|MF_BasicFurniture|HeavyBridges|RecurveBow|",concat("|",defName,"|"))]</xpath><value><researchViewX>5.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 6.00: cocoa, beekeeping, fishing, devilstrand, passive cooler, greatbow -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Cocoa|VFEM2_Beekeeping|Fishing|Devilstrand|PassiveCooler|Greatbow|",concat("|",defName,"|"))]</xpath><value><researchViewX>6.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 7.00: drug production, beer brewing, carpet-making, smithing -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|DrugProduction|Brewing|CarpetMaking|Smithing|",concat("|",defName,"|"))]</xpath><value><researchViewX>7.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 8.00: psychite refining, Penoxycyline, long blades -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|PsychiteRefining|PenoxycylineProduction|LongBlades|",concat("|",defName,"|"))]</xpath><value><researchViewX>8.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 9.00: Wake-up, Go-juice -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|WakeUpProduction|GoJuiceProduction|",concat("|",defName,"|"))]</xpath><value><researchViewX>9.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 10.00: Psychite tea, wine, medieval architecture, complex furniture, siege equipment, complex clothing -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|PsychoidBrewing|VFEM2_Wine|VFEM2_MedievalArchitecture|ComplexFurniture|VFES_SiegeEquipment|ComplexClothing|",concat("|",defName,"|"))]</xpath><value><researchViewX>10.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 11.00: alchemy, heraldry, harp, leather tanning, plate armor, noble apparel -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|VFEM2_Alchemy|VFEM2_Heraldry|Harp|VAE_LeatherTanning|PlateArmor|NobleApparel|",concat("|",defName,"|"))]</xpath><value><researchViewX>11.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 12.00: harpsichord, artisan furniture, royal apparel -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Harpsichord|MF_RoyalFurniture|RoyalApparel|",concat("|",defName,"|"))]</xpath><value><researchViewX>12.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 13.00: noble decorations, piano, modern furniture, complex workshops, matchlocks, work attire -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|VFEE_NobleDecorations|Piano|MF_ModernFurniture|VFEM2_ComplexWorkshops|VFEM2_Matchlocks|VAE_WorkAttire|",concat("|",defName,"|"))]</xpath><value><researchViewX>13.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 14.00: stellic throne, organ -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|VFEE_StellicThrone|VFEE_PipeOrgans|",concat("|",defName,"|"))]</xpath><value><researchViewX>14.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 15.00: electricity -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="Electricity"]</xpath><value><researchViewX>15.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 16.00: nutrient paste, Hydroponics basin, Autodoors, waste disposal, firefoam, machining, IEDs, military clothing -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|NutrientPaste|Hydroponics|Autodoors|MF_WasteDisposal|Firefoam|Machining|IEDs|VAE_MilitaryClothing|",concat("|",defName,"|"))]</xpath><value><researchViewX>16.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 17.00: packaged survival meal, fertility procedures, watermill generator, solar panel, battery, tox gas, sterile materials, prosthetics, Smokepop pack, imperial war solutions, hazard protection -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|PackagedSurvivalMeal|FertilityProcedures|WatermillGenerator|SolarPanels|Batteries|ToxGas|SterileMaterials|Prosthetics|SmokepopBelt|VFED_RemoteDemolition|VAE_HazardProtection|",concat("|",defName,"|"))]</xpath><value><researchViewX>17.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 18.00: deathrest, security door, advanced lights, basic electronics, air conditioning, gunsmithing, dronetech, flak armor -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Deathrest|SecurityDoor|ColoredLights|TubeTelevision|AirConditioning|Gunsmithing|VQE_Dronetech|FlakArmor|",concat("|",defName,"|"))]</xpath><value><researchViewX>18.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 19.00: xenogenetics, Sprinkler, toxifier generator, industrial generators, biofuel refining, HVAC, blowback operation, mortars -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Xenogermination|VFE_Res_Sprinkler|ToxifierGenerator|VFE_IndustrialGenerators|BiofuelRefining|VTE_HVAC|BlowbackOperation|Mortars|",concat("|",defName,"|"))]</xpath><value><researchViewX>19.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 20.00: tidal generator, Geothermal generator, advanced battery, neutroamine logistics, gas operation, gun turrets, trench warfare -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|VFE_TidalPower|GeothermalPower|VFE_AdvancedBatteries|VREA_NeutroamineLogistics|GasOperation|GunTurrets|VWE_TrenchWarfare|",concat("|",defName,"|"))]</xpath><value><researchViewX>20.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 21.00: foam turret, concealed defenses -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|FoamTurret|VFES_ConcealedDefenses|",concat("|",defName,"|"))]</xpath><value><researchViewX>21.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 22.00: microelectronics -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="MicroelectronicsBasics"]</xpath><value><researchViewX>22.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 23.00: medicine production, moisture pump, transport pod, long-range mineral scanner, Deep drill, shields, turret pack, precision rifling, multibarrel weapons, basic mechtech, jump packs -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|MedicineProduction|MoisturePump|TransportPod|LongRangeMineralScanner|DeepDrilling|ShieldBelt|TurretPack|PrecisionRifling|MultibarrelWeapons|BasicMechtech|JumpPack|",concat("|",defName,"|"))]</xpath><value><researchViewX>23.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 24.00: hospital bed, brain wiring, ground-penetrating scanner, autocannon turret, compact weaponry, specialized limbs -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|HospitalBed|BrainWiring|GroundPenetratingScanner|HeavyTurrets|CompactWeaponry|SpecializedLimbs|",concat("|",defName,"|"))]</xpath><value><researchViewX>24.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 25.00: growth vat, neural supercharger, biosculpter pod, nuclear reactor, advanced power sources, heavy weapons, poison synthesis -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|GrowthVats|NeuralSupercharger|Biosculpting|VFE_NuclearPower|VFE_AdvancedPowerSources|VWE_HeavyWeapons|VenomSynthesis|",concat("|",defName,"|"))]</xpath><value><researchViewX>25.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 26.00: gene processor, complex electronics, standard mechtech, eltex gear -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|GeneProcessor|FlatscreenTelevision|StandardMechtech|VPE_EltexGear|",concat("|",defName,"|"))]</xpath><value><researchViewX>26.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 27.00: multi-analyzer -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="MultiAnalyzer"]</xpath><value><researchViewX>27.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 28.00: vitals monitor, artificial ecosystems, bioregeneration, passenger shuttle, cryptosleep casket, spacer electronics, uranium slug turret, rocketswarm launcher, high mechtech -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|VitalsMonitor|VFE_Res_AdvancedHydroponics|Bioregeneration|Shuttles|Cryptosleep|SpacerElectronics|SniperTurret|RocketswarmLauncher|HighMechtech|",concat("|",defName,"|"))]</xpath><value><researchViewX>28.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 29.00: fabrication -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="Fabrication"]</xpath><value><researchViewX>29.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 30.00: archogenetics, circadian influence, bionic replacements, healing factors, Manufacturing, spacer furniture, imperial defenses, pulse-charged munitions, gunlink, recon armor, trooper armor -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Archogenetics|CircadianInfluence|Bionics|HealingFactors|VFE_Manufacturing|SpacerFurniture|VFED_ImperialDefenses|ChargedShot|Gunlink|ReconArmor|VAE_TrooperArmor|",concat("|",defName,"|"))]</xpath><value><researchViewX>30.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 31.00: skin hardening, neural computation, artificial metabolism, imperial war solutions, railgun, electromagnetic pulse, janissary gear, marine armor -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|SkinHardening|NeuralComputation|ArtificialMetabolism|VFED_ImperialWarSolutions|VFES_Railgun|VFES_EMPCannon|VFEE_JanissaryGear|PoweredArmor|",concat("|",defName,"|"))]</xpath><value><researchViewX>31.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 32.00: molecular analysis, toxin filtration, flesh shaping, advanced fabrication, laser targeting systems, ultra mechtech, cataphract armor -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|MolecularAnalysis|ToxFiltration|FleshShaping|AdvancedFabrication|VWE_LaserTargetingSystems|UltraMechtech|CataphractArmor|",concat("|",defName,"|"))]</xpath><value><researchViewX>32.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 33.00: wastepack atomizer, repulsor technology, beam weapons, androidtech, siegebreaker armor -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|WastepackAtomizer|VFES_RepulsorTechnology|BeamWeapons|VREA_AndroidTech|VAE_SiegebreakerArmor|",concat("|",defName,"|"))]</xpath><value><researchViewX>33.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 34.00: starflight basics -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="ShipBasics"]</xpath><value><researchViewX>34.00</researchViewX></value><success>Always</success></Operation>
+	<!-- column 35.00: machine persuasion, starship reactor, starflight sensors, Johnson-Tanaka drive, vacuum cryptosleep casket -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|ShipComputerCore|ShipReactor|ShipSensorCluster|ShipEngine|ShipCryptosleep|",concat("|",defName,"|"))]</xpath><value><researchViewX>35.00</researchViewX></value><success>Always</success></Operation>
+	<!-- row 0.30: drug production, psychite refining, Wake-up, Psychite tea, alchemy, nutrient paste, packaged survival meal, deathrest, xenogenetics, medicine production, hospital bed, growth vat, gene processor, vitals monitor, archogenetics -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|DrugProduction|PsychiteRefining|WakeUpProduction|PsychoidBrewing|VFEM2_Alchemy|NutrientPaste|PackagedSurvivalMeal|Deathrest|Xenogermination|MedicineProduction|HospitalBed|GrowthVats|GeneProcessor|VitalsMonitor|Archogenetics|",concat("|",defName,"|"))]</xpath><value><researchViewY>0.30</researchViewY></value><success>Always</success></Operation>
+	<!-- row 0.60: tree sowing, cocoa -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|TreeSowing|Cocoa|",concat("|",defName,"|"))]</xpath><value><researchViewY>0.60</researchViewY></value><success>Always</success></Operation>
+	<!-- row 0.90: Penoxycyline, Go-juice, Hydroponics basin, moisture pump, brain wiring, neural supercharger, artificial ecosystems, circadian influence, skin hardening, molecular analysis -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|PenoxycylineProduction|GoJuiceProduction|Hydroponics|MoisturePump|BrainWiring|NeuralSupercharger|VFE_Res_AdvancedHydroponics|CircadianInfluence|SkinHardening|MolecularAnalysis|",concat("|",defName,"|"))]</xpath><value><researchViewY>0.90</researchViewY></value><success>Always</success></Operation>
+	<!-- row 1.20: pemmican, beekeeping -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Pemmican|VFEM2_Beekeeping|",concat("|",defName,"|"))]</xpath><value><researchViewY>1.20</researchViewY></value><success>Always</success></Operation>
+	<!-- row 1.50: biosculpter pod, bioregeneration, bionic replacements, neural computation, toxin filtration -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Biosculpting|Bioregeneration|Bionics|NeuralComputation|ToxFiltration|",concat("|",defName,"|"))]</xpath><value><researchViewY>1.50</researchViewY></value><success>Always</success></Operation>
+	<!-- row 1.80: berry cultivation, fishing, fertility procedures -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|RG_BerryCultivation|Fishing|FertilityProcedures|",concat("|",defName,"|"))]</xpath><value><researchViewY>1.80</researchViewY></value><success>Always</success></Operation>
+	<!-- row 2.10: beer brewing, wine, transport pod, passenger shuttle, healing factors, artificial metabolism, flesh shaping -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Brewing|VFEM2_Wine|TransportPod|Shuttles|HealingFactors|ArtificialMetabolism|FleshShaping|",concat("|",defName,"|"))]</xpath><value><researchViewY>2.10</researchViewY></value><success>Always</success></Operation>
+	<!-- row 2.40: mushroom cultivation, devilstrand -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|RG_MushroomCultivation|Devilstrand|",concat("|",defName,"|"))]</xpath><value><researchViewY>2.40</researchViewY></value><success>Always</success></Operation>
+	<!-- row 2.70: heraldry, noble decorations, stellic throne, Autodoors, watermill generator, security door, Sprinkler, tidal generator, long-range mineral scanner, cryptosleep casket, machine persuasion -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|VFEM2_Heraldry|VFEE_NobleDecorations|VFEE_StellicThrone|Autodoors|WatermillGenerator|SecurityDoor|VFE_Res_Sprinkler|VFE_TidalPower|LongRangeMineralScanner|Cryptosleep|ShipComputerCore|",concat("|",defName,"|"))]</xpath><value><researchViewY>2.70</researchViewY></value><success>Always</success></Operation>
+	<!-- row 3.00: wastepack atomizer -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[string(defName)="WastepackAtomizer"]</xpath><value><researchViewY>3.00</researchViewY></value><success>Always</success></Operation>
+	<!-- row 3.30: stonecutting, medieval architecture, harp, harpsichord, piano, organ, waste disposal, solar panel, advanced lights, toxifier generator, Geothermal generator, Deep drill, ground-penetrating scanner, nuclear reactor, Manufacturing, starship reactor -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Stonecutting|VFEM2_MedievalArchitecture|Harp|Harpsichord|Piano|VFEE_PipeOrgans|MF_WasteDisposal|SolarPanels|ColoredLights|ToxifierGenerator|GeothermalPower|DeepDrilling|GroundPenetratingScanner|VFE_NuclearPower|VFE_Manufacturing|ShipReactor|",concat("|",defName,"|"))]</xpath><value><researchViewY>3.30</researchViewY></value><success>Always</success></Operation>
+	<!-- row 3.90: basic furniture, complex furniture, artisan furniture, modern furniture, electricity, battery, basic electronics, industrial generators, advanced battery, microelectronics, advanced power sources, complex electronics, multi-analyzer, spacer electronics, fabrication, spacer furniture, advanced fabrication, starflight basics, starflight sensors -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|MF_BasicFurniture|ComplexFurniture|MF_RoyalFurniture|MF_ModernFurniture|Electricity|Batteries|TubeTelevision|VFE_IndustrialGenerators|VFE_AdvancedBatteries|MicroelectronicsBasics|VFE_AdvancedPowerSources|FlatscreenTelevision|MultiAnalyzer|SpacerElectronics|Fabrication|SpacerFurniture|AdvancedFabrication|ShipBasics|ShipSensorCluster|",concat("|",defName,"|"))]</xpath><value><researchViewY>3.90</researchViewY></value><success>Always</success></Operation>
+	<!-- row 4.50: heavy bridges, passive cooler, carpet-making, siege equipment, complex workshops, firefoam, tox gas, biofuel refining, neutroamine logistics, shields, imperial defenses, imperial war solutions, repulsor technology, Johnson-Tanaka drive -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|HeavyBridges|PassiveCooler|CarpetMaking|VFES_SiegeEquipment|VFEM2_ComplexWorkshops|Firefoam|ToxGas|BiofuelRefining|VREA_NeutroamineLogistics|ShieldBelt|VFED_ImperialDefenses|VFED_ImperialWarSolutions|VFES_RepulsorTechnology|ShipEngine|",concat("|",defName,"|"))]</xpath><value><researchViewY>4.50</researchViewY></value><success>Always</success></Operation>
+	<!-- row 5.10: sterile materials, air conditioning, HVAC, turret pack, autocannon turret, heavy weapons, uranium slug turret, pulse-charged munitions, railgun, laser targeting systems, beam weapons, vacuum cryptosleep casket -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|SterileMaterials|AirConditioning|VTE_HVAC|TurretPack|HeavyTurrets|VWE_HeavyWeapons|SniperTurret|ChargedShot|VFES_Railgun|VWE_LaserTargetingSystems|BeamWeapons|ShipCryptosleep|",concat("|",defName,"|"))]</xpath><value><researchViewY>5.10</researchViewY></value><success>Always</success></Operation>
+	<!-- row 5.70: smithing, long blades, matchlocks, machining, prosthetics, gunsmithing, blowback operation, gas operation, precision rifling, compact weaponry, poison synthesis, rocketswarm launcher, electromagnetic pulse -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|Smithing|LongBlades|VFEM2_Matchlocks|Machining|Prosthetics|Gunsmithing|BlowbackOperation|GasOperation|PrecisionRifling|CompactWeaponry|VenomSynthesis|RocketswarmLauncher|VFES_EMPCannon|",concat("|",defName,"|"))]</xpath><value><researchViewY>5.70</researchViewY></value><success>Always</success></Operation>
+	<!-- row 6.30: recurve bow, greatbow, leather tanning, Smokepop pack, mortars, gun turrets, foam turret, multibarrel weapons, specialized limbs, gunlink -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|RecurveBow|Greatbow|VAE_LeatherTanning|SmokepopBelt|Mortars|GunTurrets|FoamTurret|MultibarrelWeapons|SpecializedLimbs|Gunlink|",concat("|",defName,"|"))]</xpath><value><researchViewY>6.30</researchViewY></value><success>Always</success></Operation>
+	<!-- row 6.90: plate armor, IEDs, imperial war solutions, dronetech, trench warfare, concealed defenses, basic mechtech, standard mechtech, high mechtech, recon armor, janissary gear, ultra mechtech, androidtech -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|PlateArmor|IEDs|VFED_RemoteDemolition|VQE_Dronetech|VWE_TrenchWarfare|VFES_ConcealedDefenses|BasicMechtech|StandardMechtech|HighMechtech|ReconArmor|VFEE_JanissaryGear|UltraMechtech|VREA_AndroidTech|",concat("|",defName,"|"))]</xpath><value><researchViewY>6.90</researchViewY></value><success>Always</success></Operation>
+	<!-- row 7.50: complex clothing, noble apparel, royal apparel, work attire, military clothing, hazard protection, flak armor, jump packs, eltex gear, trooper armor, marine armor, cataphract armor, siegebreaker armor -->
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ResearchProjectDef[contains("|ComplexClothing|NobleApparel|RoyalApparel|VAE_WorkAttire|VAE_MilitaryClothing|VAE_HazardProtection|FlakArmor|JumpPack|VPE_EltexGear|VAE_TrooperArmor|PoweredArmor|CataphractArmor|VAE_SiegebreakerArmor|",concat("|",defName,"|"))]</xpath><value><researchViewY>7.50</researchViewY></value><success>Always</success></Operation>
+
+	<!-- ===== Remove the emptied Basics, ReGrowth and Vanilla Expanded tabs, only if no project still uses them ===== -->
+	<!-- one pass: if none of the three is used any more, remove all three; otherwise check them one by one -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/*[tab="VFET_Basics" and not(@Abstract="True" or @Abstract="true")]</xpath>
-		<nomatch Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchTabDef[defName="VFET_Basics"]</xpath><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ThingDef[defName="Schematic"]/comps/li[@Class="CompProperties_Book"]/doers/li[@Class="BookOutcomeProperties_GainResearch"]/tabs/VFET_Basics</xpath><success>Always</success></li></operations></nomatch>
-	</Operation>
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/*[tab="RG_ReGrowth" and not(@Abstract="True" or @Abstract="true")]</xpath>
-		<nomatch Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchTabDef[defName="RG_ReGrowth"]</xpath><success>Always</success></li></operations></nomatch>
-	</Operation>
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/*[tab="VanillaExpanded" and not(@Abstract="True" or @Abstract="true")]</xpath>
-		<nomatch Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchTabDef[defName="VanillaExpanded"]</xpath><success>Always</success></li></operations></nomatch>
+		<xpath>Defs/*[contains("|VFET_Basics|RG_ReGrowth|VanillaExpanded|",concat("|",tab,"|"))][not(@Abstract="True" or @Abstract="true")]</xpath>
+		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationConditional"><xpath>Defs/*[tab="VFET_Basics" and not(@Abstract="True" or @Abstract="true")]</xpath><nomatch Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchTabDef[string(defName)="VFET_Basics"]</xpath><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ThingDef[string(defName)="Schematic"]/comps/li[@Class="CompProperties_Book"]/doers/li[@Class="BookOutcomeProperties_GainResearch"]/tabs/VFET_Basics</xpath><success>Always</success></li></operations></nomatch></li><li Class="PatchOperationConditional"><xpath>Defs/*[tab="RG_ReGrowth" and not(@Abstract="True" or @Abstract="true")]</xpath><nomatch Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchTabDef[string(defName)="RG_ReGrowth"]</xpath><success>Always</success></li></operations></nomatch></li><li Class="PatchOperationConditional"><xpath>Defs/*[tab="VanillaExpanded" and not(@Abstract="True" or @Abstract="true")]</xpath><nomatch Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchTabDef[string(defName)="VanillaExpanded"]</xpath><success>Always</success></li></operations></nomatch></li></operations></match>
+		<nomatch Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationRemove"><xpath>Defs/ResearchTabDef[string(defName)="VFET_Basics"]</xpath><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ThingDef[string(defName)="Schematic"]/comps/li[@Class="CompProperties_Book"]/doers/li[@Class="BookOutcomeProperties_GainResearch"]/tabs/VFET_Basics</xpath><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ResearchTabDef[string(defName)="RG_ReGrowth"]</xpath><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ResearchTabDef[string(defName)="VanillaExpanded"]</xpath><success>Always</success></li></operations></nomatch>
 	</Operation>
 </Patch>

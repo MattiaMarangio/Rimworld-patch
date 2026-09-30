@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Unified Research Tree: hide storytellers added by mods (only the base-game storytellers are offered). Saves already using one keep working. -->
+<!-- Unified Research Tree: hide storytellers added by mods (only the base-game storytellers are offered). Saves already using one keep working.
+     Searches name the definition type and match names with string(defName)="X"; a group is one operation with a name list, contains("|a|b|c|",concat("|",defName,"|")), which matches any definition named in it. -->
 <Patch>
-	<!-- Talon Tribal -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/StorytellerDef[defName="VFET_TalonTribal"]/listVisible</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/StorytellerDef[defName="VFET_TalonTribal"]</xpath><value><listVisible>false</listVisible></value><success>Always</success></Operation>
-	<!-- Ariadne Archduchess -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/StorytellerDef[defName="VFEE_AriadneArchduchess"]/listVisible</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/StorytellerDef[defName="VFEE_AriadneArchduchess"]</xpath><value><listVisible>false</listVisible></value><success>Always</success></Operation>
-	<!-- Damocles Deserter -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/StorytellerDef[defName="VFED_Damocles"]/listVisible</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/StorytellerDef[defName="VFED_Damocles"]</xpath><value><listVisible>false</listVisible></value><success>Always</success></Operation>
-	<!-- Maynard Medieval -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/StorytellerDef[defName="VFEM_MaynardMedieval"]/listVisible</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/StorytellerDef[defName="VFEM_MaynardMedieval"]</xpath><value><listVisible>false</listVisible></value><success>Always</success></Operation>
-	<!-- Basilicus Bestower -->
-	<Operation Class="PatchOperationRemove"><xpath>Defs/StorytellerDef[defName="VPE_Basilicus"]/listVisible</xpath><success>Always</success></Operation>
-	<Operation Class="PatchOperationAdd"><xpath>Defs/StorytellerDef[defName="VPE_Basilicus"]</xpath><value><listVisible>false</listVisible></value><success>Always</success></Operation>
+	<!-- Talon Tribal, Ariadne Archduchess, Damocles Deserter, Maynard Medieval, Basilicus Bestower: fields they may not have, so clear them first -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/StorytellerDef[contains("|VFET_TalonTribal|VFEE_AriadneArchduchess|VFED_Damocles|VFEM_MaynardMedieval|VPE_Basilicus|",concat("|",defName,"|"))]/listVisible</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/StorytellerDef[contains("|VFET_TalonTribal|VFEE_AriadneArchduchess|VFED_Damocles|VFEM_MaynardMedieval|VPE_Basilicus|",concat("|",defName,"|"))]</xpath><value><listVisible>false</listVisible></value><success>Always</success></Operation>
 </Patch>
