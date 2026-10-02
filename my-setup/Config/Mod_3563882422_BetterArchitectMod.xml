@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SettingsBlock>
+	<ModSettings Class="BetterArchitect.BetterArchitectSettings">
+		<menuHeight>330</menuHeight>
+		<backgroundAlpha>0.419999987</backgroundAlpha>
+		<sortSettingsPerCategory>
+			<keys>
+				<li>Ferny_Walls</li>
+				<li>Orders</li>
+				<li>Ferny_Production</li>
+				<li>Ferny_Storage</li>
+				<li>Ferny_Ranching</li>
+				<li>Ferny_Seating</li>
+				<li>VCHE_PipeNetworks</li>
+				<li>Ferny_Barricades</li>
+				<li>Floors</li>
+				<li>Ferny_DecoPlants</li>
+				<li>Misc</li>
+				<li>Joy</li>
+				<li>Ferny_Space</li>
+				<li>Ferny_World</li>
+				<li>Ferny_Heating</li>
+				<li>Ferny_Biotech</li>
+				<li>Ferny_Medical</li>
+				<li>Zone</li>
+				<li>Ferny_Weapons</li>
+				<li>Ferny_Doors</li>
+				<li>Ferny_Foundations</li>
+				<li>Ferny_Supports</li>
+				<li>Ferny_ProcessingProduction</li>
+				<li>Ferny_Kitchen</li>
+				<li>Ferny_Farming</li>
+				<li>Ferny_ResearchProduction</li>
+				<li>Ferny_Auxiliaries</li>
+				<li>Ferny_ProductionInfrastructure</li>
+				<li>Ferny_Tables</li>
+				<li>Ferny_Lighting</li>
+				<li>Ferny_Bedroom</li>
+				<li>Ferny_ChemfuelNetwork</li>
+				<li>Ferny_NeutroamineNetwork</li>
+				<li>Ferny_NutrientPasteNetwork</li>
+				<li>Ferny_Concealed</li>
+				<li>Ferny_Explosives</li>
+				<li>Ferny_Traps</li>
+				<li>Ferny_AmmunitionNetwork</li>
+				<li>Ferny_Outreach</li>
+				<li>Ferny_Summon</li>
+				<li>Anomaly</li>
+				<li>Ferny_DecoRugs</li>
+				<li>Ferny_DecoHanging</li>
+				<li>Ferny_SpacePlatform</li>
+				<li>Ferny_Pollution</li>
+				<li>Ferny_Filth</li>
+				<li>Ferny_Terraforming</li>
+				<li>Ferny_Cooling</li>
+				<li>Ferny_AirManagement</li>
+				<li>Ferny_Firefoam</li>
+				<li>Ferny_AerialTransport</li>
+				<li>Ferny_TransportInfrastructure</li>
+				<li>Ferny_Deathrest</li>
+				<li>Biotech</li>
+				<li>Ferny_Meditation</li>
+				<li>Ferny_Drones</li>
+				<li>Ferny_Mechanoids</li>
+				<li>Ferny_Androids</li>
+				<li>Ferny_Childhood</li>
+				<li>Ferny_Memorial</li>
+				<li>Ferny_Management</li>
+				<li>Ferny_Control</li>
+				<li>Ideology</li>
+				<li>Ferny_SpaceVacuum</li>
+				<li>Odyssey</li>
+				<li>Ship</li>
+				<li>Ferny_SpacePower</li>
+				<li>Ferny_GeneralStorage</li>
+				<li>Ferny_InformationStorage</li>
+				<li>Ferny_GearStorage</li>
+				<li>Ferny_AstrofuelNetwork</li>
+				<li>Ferny_SpaceCombat</li>
+				<li>Ferny_SpaceFurniture</li>
+				<li>Ferny_VehicleStorage</li>
+				<li>Ferny_SpaceProduction</li>
+				<li>Ferny_PowerGeneration</li>
+				<li>Ferny_PowerManagement</li>
+				<li>Ferny_PowerStorage</li>
+			</keys>
+			<values>
+				<li>
+					<sortBy>Value</sortBy>
+					<ascending>False</ascending>
+				</li>
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li>
+					<sortBy>Value</sortBy>
+				</li>
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li>
+					<sortBy>Value</sortBy>
+				</li>
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li>
+					<sortBy>Value</sortBy>
+				</li>
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li>
+					<sortBy>Value</sortBy>
+				</li>
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+				<li />
+			</values>
+		</sortSettingsPerCategory>
+		<groupByTechLevelPerCategory>
+			<keys>
+				<li>Floors</li>
+				<li>Ferny_Weapons</li>
+				<li>Ferny_Barricades</li>
+				<li>Ferny_Doors</li>
+				<li>Ferny_Walls</li>
+				<li>Orders</li>
+				<li>Ferny_Farming</li>
+				<li>Ferny_AirManagement</li>
+				<li>Ferny_Heating</li>
+			</keys>
+			<values>
+				<li>False</li>
+				<li>True</li>
+				<li>True</li>
+				<li>False</li>
+				<li>False</li>
+				<li>False</li>
+				<li>False</li>
+				<li>True</li>
+				<li>False</li>
+			</values>
+		</groupByTechLevelPerCategory>
+		<parentOverrides>
+			<keys>
+				<li>Structure</li>
+			</keys>
+			<values>
+				<li>
+					<parentDefName>Structure</parentDefName>
+					<childCategoryIds />
+				</li>
+			</values>
+		</parentOverrides>
+		<categoryOverrides>
+			<keys>
+				<li>Orders</li>
+			</keys>
+			<values>
+				<li>
+					<categoryId>Orders</categoryId>
+					<specialClassNames />
+					<specialClassOrder />
+					<removedSpecialClassNames>
+						<li>KCSG.Designator_ExportToXml</li>
+						<li>KCSG.Designator_ExportToXmlFromArea</li>
+					</removedSpecialClassNames>
+					<buildableDefNames />
+					<removedBuildableDefNames />
+				</li>
+			</values>
+		</categoryOverrides>
+		<skippedParentCategoryIds />
+	</ModSettings>
+</SettingsBlock>

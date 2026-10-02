@@ -21,6 +21,19 @@
 	<!-- flamethrower, trench gun: trench warfare -> gunsmithing; razor wire: trench warfare -> machining -->
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VWE_Gun_Flamethrower|VWE_TrenchGun|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="VWE_TrenchWarfare"]</xpath><value><researchPrerequisite>Gunsmithing</researchPrerequisite></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ThingDef[string(defName)="VFES_BarbedWire"]/researchPrerequisites/li[.="VWE_TrenchWarfare"]</xpath><value><li>Machining</li></value><success>Always</success></Operation>
+	<!-- lab coat, face mask: complex clothing -&gt; advanced clothing (needs Vanilla Apparel Expanded) -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Vanilla Apparel Expanded</li></mods>
+		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|Apparel_LabCoat|Apparel_ClothMask|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite[.="ComplexClothing"]</xpath><value><researchPrerequisite>VAE_WorkAttire</researchPrerequisite></value><success>Always</success></li></operations></match>
+	</Operation>
+	<!-- king's robes: complex clothing -&gt; royal apparel; king's crown: smithing -&gt; royal apparel (needs Royalty) -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Royalty</li></mods>
+		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VFEM2_Apparel_KingsRobes|VFEM2_Apparel_KingsCrown|",concat("|",defName,"|"))]/recipeMaker/researchPrerequisite</xpath><value><researchPrerequisite>RoyalApparel</researchPrerequisite></value><success>Always</success></li></operations></match>
+	</Operation>
+	<!-- art bench: fields they may not have, so clear them first -->
+	<Operation Class="PatchOperationRemove"><xpath>Defs/ThingDef[string(defName)="TableSculpting"]/researchPrerequisites</xpath><success>Always</success></Operation>
+	<Operation Class="PatchOperationAdd"><xpath>Defs/ThingDef[string(defName)="TableSculpting"]</xpath><value><researchPrerequisites Inherit="False"><li>ComplexFurniture</li></researchPrerequisites></value><success>Always</success></Operation>
 	<!-- leather armor, leather helmet: smithing -&gt; leather tanning; heavy leather armor and helmet: plate armor and leather tanning (needs Vanilla Apparel Expanded) -->
 	<Operation Class="PatchOperationFindMod">
 		<mods><li>Vanilla Apparel Expanded</li></mods>
@@ -31,6 +44,8 @@
 	<!-- greatbow: label, description -->
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="Greatbow"]/label</xpath><value><label>greatbows</label></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="Greatbow"]/description</xpath><value><description>Craft long-range war bows: greatbows, longbows and warbows.</description></value><success>Always</success></Operation>
+	<!-- basic furniture: description -->
+	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="MF_BasicFurniture"]/description</xpath><value><description>Build simple furniture like simple beds and more.</description></value><success>Always</success></Operation>
 	<!-- work attire: label, baseCost, description -->
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VAE_WorkAttire"]/label</xpath><value><label>advanced clothing</label></value><success>Always</success></Operation>
 	<Operation Class="PatchOperationReplace"><xpath>Defs/ResearchProjectDef[string(defName)="VAE_WorkAttire"]/baseCost</xpath><value><baseCost>2000</baseCost></value><success>Always</success></Operation>
@@ -72,10 +87,10 @@
 	<Operation Class="PatchOperationRemove"><xpath>Defs/ResearchProjectDef[string(defName)="Gunsmithing"]/prerequisites/li[.="VFEM2_Matchlocks"][2]</xpath><success>Always</success></Operation>
 
 	<!-- ===== Changes that need a specific mod ===== -->
-	<!-- fueled stove, butcher table (from construction) and fur bed, double fur bed (from complex furniture) -&gt; basic furniture -->
+	<!-- fueled stove, butcher table (from construction) and fur bed, double fur bed, art bench (from complex furniture) -&gt; basic furniture; modular bench: basic furniture -&gt; complex furniture; shelves, weapon rack, slab beds, braziers, simple research bench: complex furniture -&gt; basic furniture (several inherit it from a parent, so each gets its own list) -->
 	<Operation Class="PatchOperationFindMod">
 		<mods><li>Vanilla Furniture Expanded</li></mods>
-		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|FueledStove|TableButcher|",concat("|",defName,"|"))]/researchPrerequisites/li[.="VFET_Construction"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VFEM2_FurBed|VFEM2_DoubleFurBed|",concat("|",defName,"|"))]/researchPrerequisites/li[.="ComplexFurniture"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li></operations></match>
+		<match Class="PatchOperationSequence"><success>Always</success><operations><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|FueledStove|TableButcher|",concat("|",defName,"|"))]/researchPrerequisites/li[.="VFET_Construction"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[contains("|VFEM2_FurBed|VFEM2_DoubleFurBed|TableSculpting|",concat("|",defName,"|"))]/researchPrerequisites/li[.="ComplexFurniture"]</xpath><value><li>MF_BasicFurniture</li></value><success>Always</success></li><li Class="PatchOperationReplace"><xpath>Defs/ThingDef[string(defName)="Seat_Bench"]/researchPrerequisites/li[.="MF_BasicFurniture"]</xpath><value><li>ComplexFurniture</li></value><success>Always</success></li><li Class="PatchOperationRemove"><xpath>Defs/ThingDef[contains("|Shelf|ShelfSmall|Shelf_WeaponRack|SlabBed|SlabDoubleBed|Brazier|DarklightBrazier|SimpleResearchBench|",concat("|",defName,"|"))]/researchPrerequisites</xpath><success>Always</success></li><li Class="PatchOperationAdd"><xpath>Defs/ThingDef[contains("|Shelf|ShelfSmall|Shelf_WeaponRack|SlabBed|SlabDoubleBed|Brazier|DarklightBrazier|SimpleResearchBench|",concat("|",defName,"|"))]</xpath><value><researchPrerequisites Inherit="False"><li>MF_BasicFurniture</li></researchPrerequisites></value><success>Always</success></li></operations></match>
 	</Operation>
 	<!-- hunter drone merges into dronetech (hunter pack and trap move there); basic mechtech needs dronetech, which already needs electricity -->
 	<Operation Class="PatchOperationFindMod">

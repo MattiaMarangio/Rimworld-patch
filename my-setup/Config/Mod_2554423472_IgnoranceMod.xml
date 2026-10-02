@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SettingsBlock>
+	<ModSettings Class="DIgnoranceIsBliss.IgnoranceSettings">
+		<numTechsBehind>4</numTechsBehind>
+		<mechanoidsAreAlwaysEligible>True</mechanoidsAreAlwaysEligible>
+	</ModSettings>
+</SettingsBlock>

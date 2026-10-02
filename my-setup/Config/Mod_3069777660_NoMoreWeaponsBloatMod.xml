@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SettingsBlock>
+	<ModSettings Class="NoMoreWeaponsBloat.NoMoreWeaponsBloatSettings">
+		<AffectApparelFlag>False</AffectApparelFlag>
+		<TryBiocodeFlag>False</TryBiocodeFlag>
+		<AllowDestroyFlag>False</AllowDestroyFlag>
+		<DurabilityRange>0.102594338~0.304245293</DurabilityRange>
+		<ItemTable>
+			<keys />
+			<values />
+		</ItemTable>
+	</ModSettings>
+</SettingsBlock>

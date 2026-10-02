@@ -8,7 +8,7 @@ One research tab instead of five, laid out so it reads cleanly, plus tidier item
 - **Anomaly** and **Gravtech** are not touched.
 
 ## Research layout
-- Every Main project gets a new position: 36 columns wide, 13 rows tall. The whole tree fits the screen height, so you only scroll sideways.
+- Every Main project gets a new position: 34 columns wide, 13 rows tall. The whole tree fits the screen height, so you only scroll sideways.
 - Tech eras run left to right, from the Basics projects through to Starflight. Each project sits to the right of everything it requires.
 - Fire, Electricity, Microelectronics, Multi-analyzer, Fabrication, Advanced fabrication and Starflight basics sit on one horizontal centre line. The rest of the tree branches up and down from them.
 - Projects of the same theme (food, power, apparel, weapons and so on) are kept close together. The five starship projects share one column.
@@ -22,11 +22,13 @@ Costs are unchanged unless stated. Links to the Basics projects only apply when 
 | **Recurve bow** | Requires Bow from the Basics projects (when VFE Tribals is active). Unlocks the recurve bow and quiver, as in vanilla |
 | **Greatbows** (was *greatbow*, 600) | Unlocks the greatbow, longbow and warbow. Requires Recurve bow |
 | **Crossbows** (new, 600) | Unlocks the crossbow and arbalest (were under Greatbow). Requires Greatbows |
-| **Advanced clothing** (was *work attire*) | Cost 1,000 → **2,000**. Unlocks everything from work attire, casual wear, formal wear and sterile attire: builder's jacket, chef's toque, chef's uniform, fleece shirt, hardhat, jeans, jumpsuit, overalls, baseball cap, casual T-shirt, glasses, hoodie, scarf, shorts, sunglasses, tank top, fedora, shirt and tie, skirt, suit jacket, trousers, doctor scrubs, sterile lab coat, surgical mask |
+| **Advanced clothing** (was *work attire*) | Cost 1,000 → **2,000**. Unlocks everything from work attire, casual wear, formal wear and sterile attire: builder's jacket, chef's toque, chef's uniform, fleece shirt, hardhat, jeans, jumpsuit, overalls, baseball cap, casual T-shirt, glasses, hoodie, scarf, shorts, sunglasses, tank top, fedora, shirt and tie, skirt, suit jacket, trousers, doctor scrubs, sterile lab coat, surgical mask, plus the lab coat and face mask (were under Complex clothing) |
 | **Military clothing** | Now also unlocks the ghillie hood and ghillie suit. Requires Advanced clothing (was work attire + sterile attire) |
+| **Royal apparel** | Now also unlocks the king's robes (was under Complex clothing) and king's crown (was under Smithing), when Royalty is active |
 | **Eltex gear** | Now also unlocks the eltex cape, mask, dagger, mace and sword. Requires Noble apparel (was Complex clothing) |
 | **Cultivation** (Basics) | Now also unlocks the scarecrow |
-| **Basic furniture** | Requires Furniture (Basics). Now also unlocks the fueled stove and butcher table (were under Construction) and the fur bed and double fur bed (were under Complex furniture). Chain: Construction > Furniture > Basic furniture > Complex furniture |
+| **Basic furniture** | Requires Furniture (Basics). Now also unlocks the fueled stove and butcher table (were under Construction), the art bench (was under Culture), and the fur bed, double fur bed, slab bed, slab double bed, shelf, small shelf, small weapon rack, brazier, darklight brazier and simple research bench (were under Complex furniture). Chain: Construction > Furniture > Basic furniture > Complex furniture |
+| **Complex furniture** | Now also unlocks the modular bench (was under Basic furniture), next to the modular counter |
 | **Complex clothing** | Requires Tribalwear (Basics) |
 | **Stonecutting** | Requires Mining (Basics), line hidden |
 | **Smithing** | Requires Weapons (Basics) |
@@ -65,7 +67,7 @@ These are the groups used by bill menus and by stockpile and outfit filters.
 - **unique weapons**: the same three ranges
 - **melee**: renamed from "melee weapons". Persona weapons are unchanged.
 
-**Manufactured**: new groups for components & chips, fuel & gases, materials, brewing and ship parts.
+**Manufactured**: new groups for components & chips, fuel & gases, materials and brewing.
 **Foods**: new groups for animal feed and preserved & snacks. Raw fruits (Vanilla Plants Expanded) appear inside raw food in the resources list instead of as a separate top-level entry.
 **Misc** (under Items): new groups for seeds, genetics, anomaly, animal parts, cores & tech, intel and waste.
 
@@ -126,6 +128,7 @@ All names follow the base game's lowercase style (the game capitalises the first
 - the unfertilized kiwi egg, which described a fertilized one
 - the Stoner and Lush traits
 - the three Vanilla Gravship Expanded starting ships
+- Basic furniture: tables, stools and benches removed from its list, since they now unlock elsewhere
 
 ## Storytellers
 - Only the base-game storytellers are offered: Cassandra Classic, Phoebe Chillax and Randy Random.
@@ -148,3 +151,6 @@ All names follow the base game's lowercase style (the game capitalises the first
 - Research-screen mods that arrange the tree themselves will override this layout.
 - Overlaps with Consistent Text on item and menu names. If both are active, this mod's names win.
 - Safe to add to an existing save. A save that already researched one of the removed projects may show a harmless warning on load. In an existing colony, items that moved to a different project (for example casual clothes, now under Advanced clothing) stay locked until that project is researched.
+
+## My setup
+The [my-setup](my-setup) folder holds my full RimWorld setup: the mod list in load order, the mod order file, game options and every mod's settings, with a step-by-step guide to restore it all after reinstalling RimWorld.
